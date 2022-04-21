@@ -8,3 +8,7 @@ There are no buttons, just begin typing a number in the top input field to start
 
 Current version supports up to the number 39999 to avoid device lockups.
 
+Use the link below to see the code in action.
+
+https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/number-cruncher/blob/main/index.html
+
