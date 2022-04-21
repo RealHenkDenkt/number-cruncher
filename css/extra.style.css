@@ -558,3 +558,6 @@ em.irrationalEnd {
 .cellRight {
     text-align: right;
 }
+td.number-symbol {
+    font-size: 1.4em;
+}

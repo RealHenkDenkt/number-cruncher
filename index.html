@@ -3,206 +3,339 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>The Numbers Of The Beast</title>
+    <title>Number Cruncher</title>
     <!-- Favicon -->
     <link href="favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
     <link href="css/nucleo.css" rel="stylesheet">
-    {#<link href="css/nouislider.min.css" rel="stylesheet">#}
     <link href="css/all.min.css" rel="stylesheet">
     <link href="css/extra.style.css?t=8" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="css/argon.min.css?t=3" rel="stylesheet">
 </head>
 <body style="background: #1a174d">
-<!-- Modal -->
-<div class="modal fade" id="numberCruncherModal" tabindex="-1" role="dialog" aria-labelledby="numberCruncherModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content bg-dark">
-            <input id="numberCruncherModalNumber" type="hidden" value="0">
-            <table id="numberCruncherModalTable" class="table-dark">
-                <thead>
-                <tr>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
-                    </th>
-                    <th class="cellCentered">Mirror</th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
-                    </th>
-                    <th>
-                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="bold-green" id="fml-composite"></td>
-                    <td class="bold-green" id="fml-prime"></td>
-                    <td class="bold-green" id="fml-pythagorean-prime"></td>
-                    <td class="bold-green" id="fml-fibonacci"></td>
-                    <td class="bold-green" id="fml-triangular"></td>
-                    <td class="bold-green" id="fml-tetrahedral"></td>
-                    <td class="bold-green" id="fml-star"></td>
-                    <td class="bold-green" id="fml-hexagonal"></td>
-                    <td class="bold-green" id="fml-octagonal"></td>
-                    <td class="bold-green" id="fml-semi-prime"></td>
-                    <td class="bold-green" id="fml-lucas"></td>
-                    <td></td>
-                    <td class="bold-green" id="fmr-composite"></td>
-                    <td class="bold-green" id="fmr-prime"></td>
-                    <td class="bold-green" id="fmr-pythagorean-prime"></td>
-                    <td class="bold-green" id="fmr-fibonacci"></td>
-                    <td class="bold-green" id="fmr-triangular"></td>
-                    <td class="bold-green" id="fmr-tetrahedral"></td>
-                    <td class="bold-green" id="fmr-star"></td>
-                    <td class="bold-green" id="fmr-hexagonal"></td>
-                    <td class="bold-green" id="fmr-octagonal"></td>
-                    <td class="bold-green" id="fmr-semi-prime"></td>
-                    <td class="bold-green" id="fmr-lucas"></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span class="bold-green" id="fml-number"></span></td>
-                    <td class="cellCentered" colspan="3">Number</td>
-                    <td colspan="10"><span id="fmr-number"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span id="fml-reduced"></span></td>
-                    <td class="cellCentered" colspan="3">Reduced</td>
-                    <td colspan="10"><span id="fmr-reduced"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"> <span class="bold-white" id="fml-cubed"></span></td>
-                    <td class="cellCentered" colspan="3">Cubed</td>
-                    <td colspan="10"><span class="bold-white" id="fmr-cubed"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"> <span id="fml-times-self"></span></td>
-                    <td class="cellCentered" colspan="3">Squared</td>
-                    <td colspan="10"><span id="fmr-times-self"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"> <span id="fml-times-mirror"></span></td>
-                    <td class="cellCentered" colspan="3">* Mirror</td>
-                    <td colspan="10"><span id="fmr-times-mirror"></span></td>
-                </tr>
 
-                <tr>
-                    <td class="cellRight" colspan="10"><span id="fml-plus-mirror"></span></td>
-                    <td class="cellCentered" colspan="3">+ Mirror</td>
-                    <td colspan="10"><span id="fmr-plus-mirror"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span id="fml-summed"></span></td>
-                    <td class="cellCentered" colspan="3">Summed</td>
-                    <td colspan="10"><span id="fmr-summed"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-number-of-divisors"></span></td>
-                    <td class="cellCentered" colspan="3">Total divisors</td>
-                    <td colspan="10"><span class="bold-white" id="fmr-number-of-divisors"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors"></span></td>
-                    <td class="cellCentered" colspan="3">+ Divisors</td>
-                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors-full"></span></td>
-                    <td class="cellCentered" colspan="3">+ divisors (full)</td>
-                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors-full"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight"  colspan="10"><span class="bold-green" id="fml-factorization-text"></span></td>
-                    <td class="cellCentered" colspan="3">Factorization</td>
-                    <td colspan="10"><span class="bold-green" id="fmr-factorization-text"></span></td>
-                </tr>
-                <tr>
-                    <td class="cellRight"  colspan="10"><span class="bold-white" id="fml-divisors"></span></td>
-                    <td class="cellCentered" colspan="3">Divisors</td>
-                    <td colspan="10"><span class="bold-white" id="fmr-divisors"></span></td>
-                </tr>
-
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-</div>
-
-<!-- 23 cells, 1 center -->
 <div class="container bg-gradient-purple">
     <div class="row">
         <div style="width:100%">
-            <h1 class="titleHeader">The Numbers Of The Beast</h1>
+            <h1 class="titleHeader">Number Cruncher</h1>
             <div class="card shadow bg-gradient-primary">
-                <div class="card-body">
-                    <div>
-                        Type a number, click the green number <input type="text" id="textInput" placeholder="a number">
-                        <span data-toggle="modal" data-target="#numberCruncherModal" id="numberCopy" class="bold-green"></span>
-                    </div>
-                </div>
+
+
+                         </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="width:50%">
+            <div class="bg-dark pi-table">
+                <input id="numberCruncherModalNumber" type="hidden" value="0">
+                <table id="numberCruncherModalTable" class="table-dark">
+                    <thead>
+                    <tr>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                        </th>
+                        <th class="cellCentered"><input type="text" id="numberIn"></th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                        </th>
+                        <th>
+                            <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="bold-green" id="fml-composite"></td>
+                        <td class="bold-green" id="fml-prime"></td>
+                        <td class="bold-green" id="fml-pythagorean-prime"></td>
+                        <td class="bold-green" id="fml-fibonacci"></td>
+                        <td class="bold-green" id="fml-triangular"></td>
+                        <td class="bold-green" id="fml-tetrahedral"></td>
+                        <td class="bold-green" id="fml-star"></td>
+                        <td class="bold-green" id="fml-hexagonal"></td>
+                        <td class="bold-green" id="fml-octagonal"></td>
+                        <td class="bold-green" id="fml-semi-prime"></td>
+                        <td class="bold-green" id="fml-lucas"></td>
+                        <td></td>
+                        <td class="bold-green" id="fmr-composite"></td>
+                        <td class="bold-green" id="fmr-prime"></td>
+                        <td class="bold-green" id="fmr-pythagorean-prime"></td>
+                        <td class="bold-green" id="fmr-fibonacci"></td>
+                        <td class="bold-green" id="fmr-triangular"></td>
+                        <td class="bold-green" id="fmr-tetrahedral"></td>
+                        <td class="bold-green" id="fmr-star"></td>
+                        <td class="bold-green" id="fmr-hexagonal"></td>
+                        <td class="bold-green" id="fmr-octagonal"></td>
+                        <td class="bold-green" id="fmr-semi-prime"></td>
+                        <td class="bold-green" id="fmr-lucas"></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span class="bold-green" id="fml-number"></span></td>
+                        <td class="cellCentered" colspan="3">Number</td>
+                        <td colspan="10"><span id="fmr-number"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span id="fml-reduced"></span></td>
+                        <td class="cellCentered" colspan="3">Reduced</td>
+                        <td colspan="10"><span id="fmr-reduced"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"> <span class="bold-white" id="fml-cubed"></span></td>
+                        <td class="cellCentered" colspan="3">Cubed</td>
+                        <td colspan="10"><span class="bold-white" id="fmr-cubed"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"> <span id="fml-times-self"></span></td>
+                        <td class="cellCentered" colspan="3">Squared</td>
+                        <td colspan="10"><span id="fmr-times-self"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"> <span id="fml-times-mirror"></span></td>
+                        <td class="cellCentered" colspan="3">* Mirror</td>
+                        <td colspan="10"><span id="fmr-times-mirror"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="cellRight" colspan="10"><span id="fml-plus-mirror"></span></td>
+                        <td class="cellCentered" colspan="3">+ Mirror</td>
+                        <td colspan="10"><span id="fmr-plus-mirror"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span id="fml-summed"></span></td>
+                        <td class="cellCentered" colspan="3">Summed</td>
+                        <td colspan="10"><span id="fmr-summed"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span class="bold-white" id="fml-number-of-divisors"></span></td>
+                        <td class="cellCentered" colspan="3">Total divisors</td>
+                        <td colspan="10"><span class="bold-white" id="fmr-number-of-divisors"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors"></span></td>
+                        <td class="cellCentered" colspan="3">+ Divisors</td>
+                        <td colspan="10"><span class="bold-white" id="fmr-summed-divisors"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors-full"></span></td>
+                        <td class="cellCentered" colspan="3">+ divisors (full)</td>
+                        <td colspan="10"><span class="bold-white" id="fmr-summed-divisors-full"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight"  colspan="10"><span class="bold-green" id="fml-factorization-text"></span></td>
+                        <td class="cellCentered" colspan="3">Factorization</td>
+                        <td colspan="10"><span class="bold-green" id="fmr-factorization-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="cellRight"  colspan="10"><span class="bold-white" id="fml-divisors"></span></td>
+                        <td class="cellCentered" colspan="3">Divisors</td>
+                        <td colspan="10"><span class="bold-white" id="fmr-divisors"></span></td>
+                    </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
+        <div style="width:50%">
+            <div class="card bg-dark pi-table indexes-table">
+                <table id="indexes-form-table" class="pi-table table-dark align-items-center" style="width: 100%">
+                    <tr>
+                        <td class="number-symbol">
+                            &prime;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth prime number" data-type="prime" placeholder="&prime; index" type="text" name="primenumber" id="primeSearchInput"/><br>
+                        </td>
+
+                        <td>
+                            Prime
+                        </td>
+
+                        <td id="primeSearchResult" class="bold-green" data-totals=""></td>
+                    </tr>
+                    <tr>
+                        <td class="number-symbol">
+                            &#9727;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth Pythagorean prime number" data-type="pythagorean-prime" placeholder="&prime; index" type="text" name="pythaprimenumber" id="pythaprimeSearchInput"/><br>
+                        </td>
+                        <td>
+                            Pythagorean prime
+                        </td>
+
+                        <td id="pythaprimeSearchResult" class="bold-green" data-totals=""></td>
+                    </tr>
+                    <tr>
+                        <td class="number-symbol">
+                            &half;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth semi prime number" data-type="semi-prime" placeholder="&half; index" type="text" name="semiprimenumber" id="semiprimeSearchInput"/><br>
+                        </td>
+                        <td>
+                            Semi prime
+                        </td>
+
+                        <td id="semiprimeSearchResult" class="bold-green" data-totals=""></td>
+                    </tr>
+
+                    <tr>
+                        <td class="number-symbol">
+                            &rect;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth composite number" data-type="composite" placeholder="C index" type="text" name="compnumber" id="compSearchInput"/><br>
+                        </td>
+                        <td>
+                            Composite
+                        </td>
+
+                        <td id="compSearchResult" class="bold-green"></td>
+                    </tr>
+                    <tr>
+                        <td class="number-symbol">
+                            &#9651;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth triangular number" data-type="triangular" placeholder="&#9651; index" type="text" name="triangularnumber" id="triangularSearchInput"/><br>
+                        </td>
+                        <td>
+                            Triangular
+                        </td>
+
+                        <td id="triangularSearchResult" class="bold-green"></td>
+                    <tr>
+                        <td class="number-symbol">
+                            &#9708;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth tetrahedral number" data-type="tetrahedral" placeholder="&#9708; index" type="text" name="tetrahedralnumber" id="tetrahedralSearchInput"/><br>
+                        </td>
+                        <td>
+                            Tetrahedral
+                        </td>
+                        <td id="tetrahedralSearchResult" class="bold-green"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="number-symbol">
+                            &#128972;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth star number" data-type="star" placeholder="&#128972; index" type="text" name="starnumber" id="starSearchInput"/><br>
+                        </td>
+                        <td>
+                            Star
+                        </td>
+                        <td id="starSearchResult" class="bold-green"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="number-symbol">
+                            &#11041;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth hexagonal number" data-type="hexagonal" placeholder="&#11041; index" type="text" name="hexanumber" id="hexaSearchInput"/><br>
+                        </td>
+                        <td>
+                            Hexagonal
+                        </td>
+                        <td id="hexaSearchResult" class="bold-green"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="number-symbol">
+                            &#x2BC3;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth octagonal number" data-type="octagonal"  placeholder="&#x2BC3; index" type="text" name="octanumber" id="octaSearchInput"/><br>
+                        </td>
+                        <td>
+                            Octagonal
+                        </td>
+
+                        <td id="octaSearchResult" class="bold-green"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="number-symbol">
+                            &#966;
+                        </td>
+                        <td>
+                            <input class="form-control-sm large-input" data-placement="top" title="Show nth Fibonacci number" data-type="fibonacci" placeholder="&#966; index" type="text" name="hexanumber" id="fiboSearchInput"/><br>
+                        </td>
+                        <td>
+                            Fibonacci
+                        </td>
+                        <td id="fiboSearchResult" class="bold-green"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
     </div>
 </div>
 <div class="container bg-gradient-purple">
@@ -225,9 +358,6 @@
     <script src="js/decoder/NumberCruncher.js"></script>
     <script src="js/decoder/NumberHandler.js"></script>
     <script src="js/decoder/CoreNumberCruncher.js?t=16"></script>
-
-
-
 
 </div>
 
