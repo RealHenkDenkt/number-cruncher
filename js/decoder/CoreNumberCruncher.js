@@ -61,12 +61,16 @@ $(document).ready(function (){
         let compositeManager = new CompositeManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.composite.html(compositeManager.getCompositeByIndex(number));
     });
 
     inputs.types.primeIn.on('input', function (){
         let manager = new PrimeManager();
         let number = parseInt($(this).val());
+
+        if(isNaN(number) || number > 39999) return;
 
         results.prime.html(manager.getNthPrime(number));
     });
@@ -75,12 +79,16 @@ $(document).ready(function (){
         let manager = new PrimeManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.pythagorean.html(manager.getNthPythagoreanPrime(number));
     });
 
     inputs.types.semiPrimeIn.on('input', function (){
         let manager = new PrimeManager();
         let number = parseInt($(this).val());
+
+        if(isNaN(number) || number > 39999) return;
 
         results.semiprime.html(manager.getNthSemiPrime(number));
     });
@@ -89,17 +97,23 @@ $(document).ready(function (){
         let manager = new TriangularManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.triangular.html(manager.getTriangularByNumber(number));
     });
     inputs.types.hexagonalIn.on('input', function (){
         let manager = new HexagonalManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.hexagonal.html(manager.getHexagonalByNumber(number));
     });
     inputs.types.tetrahedralIn.on('input', function (){
         let manager = new TetrahedralManager();
         let number = parseInt($(this).val());
+
+        if(isNaN(number) || number > 39999) return;
 
         results.tetrahedral.html(manager.getNth(number));
     });
@@ -108,6 +122,8 @@ $(document).ready(function (){
         let manager = new StarnumberManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.star.html(manager.getNthStarnumber(number));
     });
 
@@ -115,12 +131,16 @@ $(document).ready(function (){
         let manager = new FibonaccisManager();
         let number = parseInt($(this).val());
 
+        if(isNaN(number) || number > 39999) return;
+
         results.fibo.html(manager.getNthFibonacci(number));
     });
 
     inputs.types.octagonalIn.on('input', function (){
         let manager = new OctagonalManager();
         let number = parseInt($(this).val());
+
+        if(isNaN(number) || number > 39999) return;
 
         results.octagonal.html(manager.getNthOcta(number));
     });

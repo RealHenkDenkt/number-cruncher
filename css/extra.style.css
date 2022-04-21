@@ -561,3 +561,6 @@ em.irrationalEnd {
 td.number-symbol {
     font-size: 1.4em;
 }
+#fml-number, #fmr-number {
+    font-size: 1.4em;
+}
