@@ -145,6 +145,9 @@ $(document).ready(function (){
         results.octagonal.html(manager.getNthOcta(number));
     });
 
+    // CLEAR PRELOADER
+    $('#preloader').hide();
+
     function clearSearchResults () {
         // Clear index searches
         for (result in results) {
