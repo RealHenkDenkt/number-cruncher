@@ -28,11 +28,17 @@ NumberCruncher.prototype.clearModalContent = function (direction) {
     this.setModalCell(element, '');
     element = '#fm'+direction+'-lucas';
     this.setModalCell(element, '');
+    element = '#fm'+direction+'-harshad';
+    this.setModalCell(element, '');
     element = '#fm'+direction+'-reduced';
     this.setModalCell(element, '');
     element = '#fm'+direction+'-cubed';
     this.setModalCell(element, '')
     element = '#fm'+direction+'-summed';
+    this.setModalCell(element, '');
+    element = '#fm'+direction+'-divide9';
+    this.setModalCell(element, '');
+    element = '#fm'+direction+'-divide11';
     this.setModalCell(element, '');
     element = '#fm'+direction+'-times-self';
     this.setModalCell(element, '');
@@ -130,6 +136,11 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-lucas';
         this.setModalCell(element, numberHandler.numberProperties.lucas);
     }
+    // Harshad
+    if (numberHandler.numberProperties.harshad !== -1) {
+        element = '#fm'+direction+'-harshad';
+        this.setModalCell(element, numberHandler.numberProperties.harshad);
+    }
     // Reduced
     element = '#fm'+direction+'-reduced';
     this.setModalCell(element, numberHandler.numberProperties.reduced);
@@ -139,6 +150,16 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
     // Summed
     element = '#fm'+direction+'-summed';
     this.setModalCell(element, numberHandler.numberProperties.summed);
+    // Divide by 9
+    if (numberHandler.number % 9 === 0) {
+        element = '#fm'+direction+'-divide9';
+        this.setModalCell(element, numberHandler.number / 9);
+
+    }
+    if (numberHandler.number % 11 === 0) {
+        element = '#fm'+direction+'-divide11';
+        this.setModalCell(element, numberHandler.number / 11);
+    }
     // TimesSelf
     element = '#fm'+direction+'-times-self';
     this.setModalCell(element, numberHandler.numberProperties.times_self);
