@@ -56,6 +56,14 @@ NumberCruncher.prototype.clearModalContent = function (direction) {
     this.setModalCell(element, '');
     element = '#fm'+direction+'-factorization-text';
     this.setModalCell(element, '');
+    element = '#fm'+direction+'-binary';
+    this.setModalCell(element, '');
+    element = '#fm'+direction+'-base7';
+    this.setModalCell(element, '');
+    element = '#fm'+direction+'-base8';
+    this.setModalCell(element, '');
+    element = '#fm'+direction+'-base16';
+    this.setModalCell(element, '');
 }
 
 NumberCruncher.prototype.fillModalContent = function (number) {
@@ -185,6 +193,14 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
     element = '#fm'+direction+'-factorization-text';
     this.setModalCell(element, numberHandler.numberProperties.factorization_text);
 
+    element = '#fm'+direction+'-binary';
+    this.setModalCell(element, number.toString(2));
+    element = '#fm'+direction+'-base7';
+    this.setModalCell(element, number.toString(7));
+    element = '#fm'+direction+'-base8';
+    this.setModalCell(element, number.toString(8));
+    element = '#fm'+direction+'-base16';
+    this.setModalCell(element, number.toString(16));
 }
 
 NumberCruncher.prototype.setModalCell = function (element, value) {
