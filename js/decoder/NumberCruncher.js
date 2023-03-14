@@ -1,75 +1,68 @@
 let NumberCruncher = function (number) {
     this.number = number;
+    this.elements = [
+		'number',
+		'composite',
+		'prime',
+		'pythagorean-prime',
+		'semi-prime',
+		'fibonacci',
+		'triangular',
+		'hexagonal',
+		'tetrahedral',
+		'star',
+		'octagonal',
+		'lucas',
+		'harshad',
+		'centeredtriangular',
+		'heptagonal',
+		'centered-heptagonal',
+		'reduced',
+		'cubed',
+		'summed',
+		'divide9',
+		'-divide11',
+		'times-self',
+		'times-mirror',
+		'plus-mirror',
+		'number-of-divisors',
+		'summed-divisors',
+		'summed-divisors-full',
+		'-divisors',
+		'factorization-text',
+		'binary',
+		'base3',
+		'base6',
+		'base7',
+		'base8',
+		'base16'
+		
+		/**
+		
+'reduced','cubed''summed','divide9','-divide11','times-self','times-mirror','plus-mirror','number-of-divisors',
+'summed-divisors','summed-divisors-full','-divisors','factorization-text','binary','base3','base6',
+'base7','base8','base16'
+    this.setModalCell(element, '');
+
+		 */
+		
+		
+		
+		
+	];
 }
 
 NumberCruncher.prototype.clearModalContent = function (direction) {
     let element;
-    element = '#fm'+direction+'-number';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-composite';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-prime';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-pythagorean-prime';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-semi-prime';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-fibonacci';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-triangular';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-hexagonal';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-tetrahedral';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-star';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-octagonal';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-lucas';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-harshad';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-centeredtriangular';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-reduced';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-cubed';
-    this.setModalCell(element, '')
-    element = '#fm'+direction+'-summed';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-divide9';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-divide11';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-times-self';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-times-mirror';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-plus-mirror';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-number-of-divisors';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-summed-divisors';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-summed-divisors-full';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-divisors';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-factorization-text';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-binary';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-base3';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-base6';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-base7';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-base8';
-    this.setModalCell(element, '');
-    element = '#fm'+direction+'-base16';
-    this.setModalCell(element, '');
+    let elements = this.elements;
+    
+    for (e in elements) {
+		if (elements.hasOwnProperty(e)) {
+			element = '#fm'+direction+'-'+elements[e];
+			this.setModalCell(element, '');
+			
+		}
+	}
 }
 
 NumberCruncher.prototype.fillModalContent = function (number) {

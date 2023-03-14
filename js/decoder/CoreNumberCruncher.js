@@ -15,6 +15,8 @@ $(document).ready(function (){
             starIn: $('#starSearchInput'),
             lucasIn: $('#lucasSearchInput'),
             centeredTriangularIn: $('#centeredTriangularSearchInput'),
+            heptagonalIn: $('#heptagonalSearchInput'),
+            centeredHeptagonalIn: $('#centeredHeptagonalSearchInput'),
        //     harshadIn: $('#harshadSearchInput'),
             fiboIn: $('#fiboSearchInput')
         }
@@ -32,6 +34,8 @@ $(document).ready(function (){
         star: $('#starSearchResult'),
         lucas: $('#lucasSearchResult'),
         centeredTriangular: $('#centeredTriangularSearchResult'),
+        heptagonal: $('#heptagonalSearchResult'),
+        centeredHeptagonal: $('#centeredHeptagonalSearchResult'),
     //    harshad: $('#harshadSearchResult'),
         fibo: $('#fiboSearchResult')
     };
@@ -147,9 +151,26 @@ $(document).ready(function (){
 		let number = parseInt($(this).val());
 		
 		if (isNaN(number) || number > 39999) return;
-		console.log('hier');
+
 		results.centeredTriangular.html(manager.getNthCenteredTriangular(number));		
 	});
+	
+	inputs.types.heptagonalIn.on('input', function () {
+		let manager = new HeptagonalManager();
+		let number = parseInt($(this).val());
+		if (isNaN(number) || number > 39999) return;
+		
+		results.heptagonal.html(manager.getNth(number));
+	})
+
+	inputs.types.centeredHeptagonalIn.on('input', function () {
+		let manager = new CenteredHeptagonalManager();
+		let number = parseInt($(this).val());
+		if (isNaN(number) || number > 39999) return;
+		
+		results.centeredHeptagonal.html(manager.getNth(number));
+	})
+	
 /*
 	inputs.types.harshadIn.on('input', function (){
 		let manager = new HarshadManager();

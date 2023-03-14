@@ -20,6 +20,8 @@ NumberHandler.prototype.setNumber = function (number) {
         'octagonal': -1,
         'lucas': -1,
         'centeredTriangular': -1,
+        'heptagonal': -1,
+        'centeredHeptagonal': -1,
         'reduced': 0,
         'summed': 0,
         'times_self': 0,
@@ -53,6 +55,8 @@ NumberHandler.prototype.setProperties = function () {
     this.setHarshad();
     this.setComposite();
     this.setCenteredTriangular();
+    this.setHeptagonal();
+    this.setCenteredHeptagonal();
 
 }
 
@@ -230,6 +234,30 @@ NumberHandler.prototype.checkOctagonal = function () {
     return octagonalManager.isOctagonal(this.number);
 }
 
+
+NumberHandler.prototype.checkHeptagonal = function () {
+	let manager = new HeptagonalManager();
+	return manager.isHeptagonal(this.number);
+}
+
+NumberHandler.prototype.setHeptagonal = function () {
+	if (true === this.checkHeptagonal()) {
+		let manager = new HeptagonalManager();
+		this.numberProperties.heptagonal = manager.getIndex(this.number);	
+	}
+}
+
+NumberHandler.prototype.checkCenteredHeptagonal = function () {
+	let manager = new HeptagonalManager();
+	return manager.isHeptagonal(this.number);
+}
+
+NumberHandler.prototype.setCenteredHeptagonal = function () {
+	if (true === this.checkHeptagonal()) {
+		let manager = new HeptagonalManager();
+		this.numberProperties.heptagonal = manager.getIndex(this.number);	
+	}
+}
 
 
 NumberHandler.prototype.checkCenteredTriangular = function () {
