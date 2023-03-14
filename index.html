@@ -73,6 +73,10 @@
                         <th>
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Harshad">Ha</span>
                         </th>
+                        
+                        <th>
+                        	<span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Centered Triangular">CT</span>
+                        </th>
 
                         <th class="cellCentered"><input type="text" id="numberIn"></th>
                         <th>
@@ -111,6 +115,10 @@
                         <th>
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Harshad">Ha</span>
                         </th>
+                                                <th>
+                        	<span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Centered Triangular">CT</span>
+                        </th>
+                        
                     </tr>
                     </thead>
                     <tbody>
@@ -127,6 +135,7 @@
                         <td class="bold-green" id="fml-semi-prime" title="Semi prime"></td>
                         <td class="bold-green" id="fml-lucas" title="Lucas"></td>
                         <td class="bold-green" id="fml-harshad" title="Harshad"></td>
+                        <td class="bold-green" id="fml-centeredtriangular" title="Centered triangular"></td>
                         <td></td>
                         <td class="bold-green" id="fmr-composite" title="Composite/non-prime"></td>
                         <td class="bold-green" id="fmr-prime" title="Prime"></td>
@@ -140,6 +149,7 @@
                         <td class="bold-green" id="fmr-semi-prime" title="Semi prime"></td>
                         <td class="bold-green" id="fmr-lucas" title="Lucas"></td>
                         <td class="bold-green" id="fmr-harshad" title="Harshad"></td>
+                        <td class="bold-green" id="fmr-centeredtriangular" title="Centered triangular"></td>
                     </tr>
                     <tr>
                         <td class="cellRight" colspan="10"><span class="bold-green" id="fml-number"></span></td>
@@ -374,6 +384,31 @@
                         <td id="octaSearchResult" class="bold-green"></td>
 
                     </tr>
+                    <tr >
+                        <td>
+                            L
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth Lucas number" data-type="lucas"  placeholder="L index" type="text" name="lucasnumber" id="lucasSearchInput"/><br>
+                        </td>
+
+                    	<td>
+                    		Lucas
+                    	</td>
+                    	<td id="lucasSearchResult" class="bold-green"></td>
+                    </tr>
+	                <tr >
+                        <td>
+                            CT
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth centered triangular" data-type="centered-triangular"  placeholder="CT index" type="text" name="centeredtriangular" id="centeredTriangularSearchInput"/><br>
+                        </td>
+                    	<td>
+                    		Centered Triangular
+                    	</td>
+                    	<td id="centeredTriangularSearchResult" class="bold-green"></td>
+                    </tr>
                     <tr>
                         <td class="number-symbol">
                             &#966;
@@ -401,15 +436,22 @@
     <!-- Argon JS -->
     <script src="js/argon.min.js?t=16"></script>
     <script src="js/decoder/composites.js?t=16"></script>
+<!--     <script src="js/decoder/E-10m.js"></script>
+    <script src="js/decoder/phi-20m.js"></script>
+    <script src="js/decoder/pi-20m.js"></script>
+    <script src="js/decoder/IrrationalNumber.js"></script>
+    <script src="js/decoder/IrrationalHandler.js"></script>-->
     <script src="js/decoder/hexagonal.js?t=16"></script>
     <script src="js/decoder/octagonal.js"></script>
     <script src="js/decoder/starnumber.js"></script>
+    <script src="js/decoder/CenteredTriangular.js"></script>
     <script src="js/decoder/primes-list.js?t=16"></script>
     <script src="js/decoder/triangulars.js?t=16"></script>
     <script src="js/decoder/tetrahedral.js?t=16"></script>
     <script src="js/decoder/fibonaccis.js?t=16"></script>
     <script src="js/decoder/Primes.js?t=16"></script>
     <script src="js/decoder/lucas.js"></script>
+    <script src="js/decoder/harshad.js"></script>
     <script src="js/decoder/NumberCruncher.js"></script>
     <script src="js/decoder/NumberHandler.js"></script>
     <script src="js/decoder/CoreNumberCruncher.js?t=16"></script>

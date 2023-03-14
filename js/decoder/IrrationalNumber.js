@@ -1,0 +1,95 @@
+let IrrationalNumber = function (type) {
+    this.type = type;
+    
+    this.types = {
+        PHI: PHI,
+        PI: PI,
+        E: EULER,
+        EULER: EULER
+    }
+};
+
+IrrationalNumber.prototype.getSumUpToNumber = function (n) {
+	let sum = 0;
+	
+	for (let i = 0; i < 0; i++) {
+		sum += this.type[i];
+	}	
+	
+	return sum;
+}
+
+IrrationalNumber.prototype.getAllIndexesForRange = function (val, start, end = 1000) {
+    let range = this.type.substr(start, end);
+
+    return this.getAllIndexes(val, range, start);
+}
+
+IrrationalNumber.prototype.getAllIndexes = function (val, range = this.type, add=0) {
+    let indexes = [], i = -1;
+    while ((i = range.indexOf(val, i+1)) !== -1){
+        indexes.push(i+1+add);
+    }
+    return indexes;
+}
+
+IrrationalNumber.prototype.search = function (number) {
+    let result = parseInt(this.type.indexOf(number)),
+        positions = [];
+
+    if (-1 !== result) {
+        result++;
+        // add some bonus summation
+        if (number.length > 1) {
+            for (let i = 0; i < number.length; i++) {
+                positions.push(result + i);
+            }
+        } else {
+            return [result];
+        }
+    }
+    return positions;
+}
+
+
+IrrationalNumber.prototype.searchDeep = function (search, index ) {
+    let positions = [],
+        result = getPosition(this.type, search, index);
+
+    if (-1 !== result) {
+        result++;
+        // add some bonus summation
+        if (search.length > 1) {
+            for (let i = 0; i < search.length; i++) {
+                positions.push(result + i);
+            }
+        } else {
+            return [result];
+        }
+    }
+
+    return positions;
+
+    function getPosition(irrationalNumber, search, index) {
+        return irrationalNumber.split(search, index).join(search).length;
+    }
+}
+IrrationalNumber.prototype.getPositionAndSum = function (number) {
+    if (undefined === number) return 0;
+
+    let numberString = number.toString(),
+    sum = 0,
+    position = this.type.indexOf(number) + 1;
+
+    for (let i =0; i < numberString.length; i ++) {
+        sum += position + i;
+    }
+
+    return [position, sum];
+
+}
+
+IrrationalNumber.prototype.getStringLocation = function (number) {
+    if (number < 10) return this.type.substr((number-1), 10);
+    return this.type.substr((number - 10), 30);
+}

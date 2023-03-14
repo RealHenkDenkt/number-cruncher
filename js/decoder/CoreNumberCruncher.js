@@ -13,6 +13,9 @@ $(document).ready(function (){
             octagonalIn: $('#octaSearchInput'),
             compositeIn: $('#compSearchInput'),
             starIn: $('#starSearchInput'),
+            lucasIn: $('#lucasSearchInput'),
+            centeredTriangularIn: $('#centeredTriangularSearchInput'),
+       //     harshadIn: $('#harshadSearchInput'),
             fiboIn: $('#fiboSearchInput')
         }
     }
@@ -27,6 +30,9 @@ $(document).ready(function (){
         hexagonal: $('#hexaSearchResult'),
         octagonal: $('#octaSearchResult'),
         star: $('#starSearchResult'),
+        lucas: $('#lucasSearchResult'),
+        centeredTriangular: $('#centeredTriangularSearchResult'),
+    //    harshad: $('#harshadSearchResult'),
         fibo: $('#fiboSearchResult')
     };
 
@@ -36,7 +42,7 @@ $(document).ready(function (){
             numberCruncher = new NumberCruncher();
 
 
-        if(isNaN(number) || number > 39999) {
+        if(isNaN(number) || number > 99999) {
             clearSearchResults();
             numberCruncher.clearModalContent('l');
             numberCruncher.clearModalContent('r');
@@ -127,6 +133,34 @@ $(document).ready(function (){
         results.star.html(manager.getNthStarnumber(number));
     });
 
+	inputs.types.lucasIn.on('input', function (){
+		let manager = new LucasManager();
+		let number = parseInt($(this).val());
+		
+		if (isNaN(number) || number > 39999) return;
+		
+		results.lucas.html(manager.getNthLucasNumber(number));		
+	});
+	
+	inputs.types.centeredTriangularIn.on('input', function (){
+		let manager = new CenteredTriangularManager();
+		let number = parseInt($(this).val());
+		
+		if (isNaN(number) || number > 39999) return;
+		console.log('hier');
+		results.centeredTriangular.html(manager.getNthCenteredTriangular(number));		
+	});
+/*
+	inputs.types.harshadIn.on('input', function (){
+		let manager = new HarshadManager();
+		let number = parseInt($(this).val());
+		
+		if (isNaN(number) || number > 39999) return;
+		
+		results.harshad.html(manager.getNthHarshadNumber(number));
+	
+	});
+*/
     inputs.types.fiboIn.on('input', function (){
         let manager = new FibonaccisManager();
         let number = parseInt($(this).val());

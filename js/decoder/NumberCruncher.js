@@ -30,6 +30,8 @@ NumberCruncher.prototype.clearModalContent = function (direction) {
     this.setModalCell(element, '');
     element = '#fm'+direction+'-harshad';
     this.setModalCell(element, '');
+    element = '#fm'+direction+'-centeredtriangular';
+    this.setModalCell(element, '');
     element = '#fm'+direction+'-reduced';
     this.setModalCell(element, '');
     element = '#fm'+direction+'-cubed';
@@ -153,6 +155,13 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-harshad';
         this.setModalCell(element, numberHandler.numberProperties.harshad);
     }
+    
+    // Centered Triangular
+    if (numberHandler.numberProperties.centeredTriangular !== -1) {
+		element = '#fm'+direction+'-centeredtriangular';
+		this.setModalCell(element, numberHandler.numberProperties.centeredTriangular);
+	}
+    
     // Reduced
     element = '#fm'+direction+'-reduced';
     this.setModalCell(element, numberHandler.numberProperties.reduced);

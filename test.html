@@ -1,0 +1,36 @@
+<html>
+<body>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+<script>
+// Get the canvas element from the HTML page
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+// Define the function to draw an hexagon
+function drawHexagon(centerX, centerY, sideLength) {
+  const angleDeg = 60;
+  const angleRad = (Math.PI / 180) * angleDeg;
+  ctx.beginPath();
+  ctx.moveTo(centerX + sideLength * Math.cos(0), centerY + sideLength * Math.sin(0));
+  for (let i = 1; i <= 6; i++) {
+    ctx.lineTo(centerX + sideLength * Math.cos(angleRad * i), centerY + sideLength * Math.sin(angleRad * i));
+  }
+  ctx.closePath();
+  ctx.stroke();
+}
+
+// Define the function to calculate the n-th hexagonal number
+function getHexagonalNumber(n) {
+  return n * (2 * n - 1);
+}
+
+// Draw the hexagon to represent the 10th hexagonal number
+const hexagonalNumber = getHexagonalNumber(6);
+ctx.fillStyle = "white";
+ctx.strokeStyle = "black";
+drawHexagon(canvas.width / 2, canvas.height / 2, hexagonalNumber / 2);
+ctx.fill();
+ctx.stroke();
+</script>
+</body>
+</html>

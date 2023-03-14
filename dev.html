@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Number Cruncher</title>
+    <!-- Favicon -->
+    <link href="favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="css/nucleo.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/extra.style.css?t=8" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="css/argon.min.css?t=3" rel="stylesheet">
+</head>
+<body style="background: #1a174d">
+<canvas width="1000" height="600" id="myCanvas"></canvas>
+
+
+
+<script type="text/javascript">
+function drawEquilateralTriangle(canvas, x) {
+  const context = canvas.getContext("2d");
+  const size = Math.min(canvas.width, canvas.height);
+  const radius = size / (Math.sqrt(3) * (Math.sqrt(2 * x + 1) + 1));
+  const rows = Math.ceil((-1 + Math.sqrt(1 + 8 * x)) / 2);
+  const cols = 2 * rows - 1;
+  const offset = (size - cols * radius) / 2;
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let row = 0; row < rows; row++) {
+    const circleCount = rows - row;
+    const rowOffset = offset + (cols - circleCount * 2) * radius / 2 + radius * Math.sqrt(3) / 2;
+    for (let col = 0; col < circleCount; col++) {
+      const x = col * 2 * radius + rowOffset;
+      const y = (rows - row - 1) * radius * Math.sqrt(3) + radius;
+      context.beginPath();
+      context.arc(x, y, radius, 0, 2 * Math.PI);
+      context.stroke();
+    }
+  }
+}
+
+
+function drawOctagonalNumber(ctx, n) {
+  let radius = 20;
+  let centerX = 200;
+  let centerY = 200;
+  let octagonSide = 2 * radius * Math.tan(Math.PI / 8);
+
+  for (let i = 0; i < x; i++) {
+    let octagonX = centerX + (i % 8) * octagonSide;
+    let octagonY = centerY + Math.floor(i / 8) * octagonSide;
+    let circleX;
+    let circleY;
+
+    if (i % 8 === 0) {
+      circleX = octagonX + radius;
+      circleY = octagonY + radius;
+    } else if (i % 8 === 1 || i % 8 === 7) {
+      circleX = octagonX + radius * (1 + Math.sqrt(2));
+      circleY = octagonY + radius * (1 - Math.sqrt(2));
+    } else if (i % 8 === 2 || i % 8 === 6) {
+      circleX = octagonX + radius * (2 + Math.sqrt(2));
+      circleY = octagonY + radius;
+    } else if (i % 8 === 3 || i % 8 === 5) {
+      circleX = octagonX + radius * (2 + Math.sqrt(2));
+      circleY = octagonY + radius * (3 + Math.sqrt(2));
+    } else {
+      circleX = octagonX + radius * (1 + Math.sqrt(2));
+      circleY = octagonY + radius * (4 + Math.sqrt(2));
+    }
+
+    ctx.beginPath();
+    ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+  }
+}
+
+
+
+const canvas = document.getElementById("myCanvas");
+const n = 20; // the triangular number to be drawn
+drawEquilateralTriangle(canvas, n);
+
+
+</script>
+</body>
+</html>

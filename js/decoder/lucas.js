@@ -21,9 +21,28 @@ LucasManager.prototype.isLucasNumber = function (number) {
 LucasManager.prototype.getIndex = function (number) {
     return LUCAS.indexOf(number);
 }
-LucasManager.prototype.getNthLucas = function (n) {
+LucasManager.prototype.OldgetNthLucas = function (n) {
     if (n < 113) return LUCAS[(n-1)]
 }
+
+LucasManager.prototype.getNthLucasNumber = function (n) {
+
+		// declaring base values
+		// for positions 0 and 1
+		let a = 2, b = 1, c, i;
+
+		if (n == 0)
+			return a;
+
+		// generating number
+		for (i = 2; i <= n; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+		}
+
+		return b;
+	}
 
 const LUCAS = [
     2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322, 521, 843, 1364, ,2207, 3571, 5778, 9349, 15127, 24476, 39603, 64079, 103682,

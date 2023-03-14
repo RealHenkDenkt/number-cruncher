@@ -19,6 +19,7 @@ NumberHandler.prototype.setNumber = function (number) {
         'star': -1,
         'octagonal': -1,
         'lucas': -1,
+        'centeredTriangular': -1,
         'reduced': 0,
         'summed': 0,
         'times_self': 0,
@@ -51,6 +52,7 @@ NumberHandler.prototype.setProperties = function () {
     this.setSummedAndDivisors();
     this.setHarshad();
     this.setComposite();
+    this.setCenteredTriangular();
 
 }
 
@@ -227,6 +229,21 @@ NumberHandler.prototype.checkOctagonal = function () {
     let octagonalManager = new OctagonalManager();
     return octagonalManager.isOctagonal(this.number);
 }
+
+
+
+NumberHandler.prototype.checkCenteredTriangular = function () {
+	let manager = new CenteredTriangularManager();
+	return manager.isCenteredTriangular(this.number);
+}
+
+NumberHandler.prototype.setCenteredTriangular = function () {
+	if (true === this.checkCenteredTriangular()) {
+		let manager = new CenteredTriangularManager();
+		this.numberProperties.centeredTriangular = manager.getIndex(this.number);
+	}
+}
+
 
 NumberHandler.prototype.setLucas = function () {
     if (true === this.checkLucas()) {
