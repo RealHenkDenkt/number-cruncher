@@ -19,5 +19,5 @@ HeptagonalManager.prototype.getIndex = function (n) {
 		if (this.isHeptagonal(i)) k++;
 	}
 	
-	return k;
+	return k+1;
 }

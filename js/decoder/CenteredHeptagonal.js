@@ -3,12 +3,15 @@ let CenteredHeptagonalManager = function () {
 };
 
 CenteredHeptagonalManager.prototype.getNth = function (n) {
-	return (3 * n * n + 3 * n + 2) / 2;	
+	return parseInt((7 * n * n - 7 * n + 2) / 2);
 }
 
-CenteredHeptagonalManager.prototype.isCenteredHeptagonal = function (n) {
-	var n = (-3 + Math.sqrt(24 * n - 15)) / 6;
-    return (k - parseInt(k)) == 0;
+CenteredHeptagonalManager.prototype.isCenteredHeptagonal = function (N) {
+	let n = (7 + Math.sqrt(56 * N - 7)) / 14;
+ 
+    // Condition to check if the
+    // number is a Centered heptagonal number
+    return (n - parseInt(n)) == 0;
 }
 
 CenteredHeptagonalManager.prototype.getIndex = function (n) {
@@ -18,5 +21,5 @@ CenteredHeptagonalManager.prototype.getIndex = function (n) {
 		if (this.isCenteredHeptagonal(i)) k++;
 	}
 	
-	return k;
+	return k+1;
 }

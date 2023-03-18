@@ -16,7 +16,7 @@ let NumberCruncher = function (number) {
 		'harshad',
 		'centeredtriangular',
 		'heptagonal',
-		'centered-heptagonal',
+		'centeredheptagonal',
 		'reduced',
 		'cubed',
 		'summed',
@@ -154,6 +154,19 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
 		element = '#fm'+direction+'-centeredtriangular';
 		this.setModalCell(element, numberHandler.numberProperties.centeredTriangular);
 	}
+    
+    // Heptagonal
+    if (numberHandler.numberProperties.heptagonal !== -1) {
+		element = '#fm'+direction+'-heptagonal';
+		this.setModalCell(element, numberHandler.numberProperties.heptagonal);
+	}
+
+    // Centered Heptagonal
+    if (numberHandler.numberProperties.CenteredHeptagonal !== -1) {
+		element = '#fm'+direction+'-centeredheptagonal';
+		this.setModalCell(element, numberHandler.numberProperties.centeredHeptagonal);
+	}
+
     
     // Reduced
     element = '#fm'+direction+'-reduced';

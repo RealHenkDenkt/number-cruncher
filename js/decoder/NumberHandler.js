@@ -248,14 +248,14 @@ NumberHandler.prototype.setHeptagonal = function () {
 }
 
 NumberHandler.prototype.checkCenteredHeptagonal = function () {
-	let manager = new HeptagonalManager();
-	return manager.isHeptagonal(this.number);
+	let manager = new CenteredHeptagonalManager();
+	return manager.isCenteredHeptagonal(this.number);
 }
 
 NumberHandler.prototype.setCenteredHeptagonal = function () {
-	if (true === this.checkHeptagonal()) {
-		let manager = new HeptagonalManager();
-		this.numberProperties.heptagonal = manager.getIndex(this.number);	
+	if (true === this.checkCenteredHeptagonal()) {
+		let manager = new CenteredHeptagonalManager();
+		this.numberProperties.centeredHeptagonal = manager.getIndex(this.number);	
 	}
 }
 
