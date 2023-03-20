@@ -15,6 +15,7 @@ NumberHandler.prototype.setNumber = function (number) {
         'triangular': -1,
         'tetrahedral': -1,
         'harshad': -1,
+        'pentagonal': -1,
         'hexagonal': -1,
         'star': -1,
         'octagonal': -1,
@@ -43,6 +44,7 @@ NumberHandler.prototype.setProperties = function () {
     this.setFibonacci();
     this.setTriangular();
     this.setTetrahedral();
+    this.setPentagonal();
     this.setHexagonal();
     this.setStar();
     this.setOctagonal();
@@ -209,6 +211,20 @@ NumberHandler.prototype.checkStar = function () {
     let starNumberManager = new StarnumberManager();
     return starNumberManager.isStarnumber(this.number);
 }
+
+NumberHandler.prototype.setPentagonal = function () {
+	if (true === this.checkPentagonal()) {
+		let pentagonalManager = new PentagonalManager();
+		this.numberProperties.pentagonal = pentagonalManager.getIndex(this.number);
+	}
+}
+
+NumberHandler.prototype.checkPentagonal = function () {
+	let pentagonalManager = new PentagonalManager();
+	return pentagonalManager.isPentagonal(this.number);
+}
+
+
 
 NumberHandler.prototype.setHexagonal = function () {
     if (true === this.checkHexagonal()) {

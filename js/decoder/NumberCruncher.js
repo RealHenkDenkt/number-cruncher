@@ -8,6 +8,7 @@ let NumberCruncher = function (number) {
 		'semi-prime',
 		'fibonacci',
 		'triangular',
+		'pentagonal',
 		'hexagonal',
 		'tetrahedral',
 		'star',
@@ -118,6 +119,11 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-triangular';
         this.setModalCell(element, numberHandler.numberProperties.triangular);
     }
+    // Pentagonal
+    if (numberHandler.numberProperties.pentagonal !== -1) {
+		element = '#fm'+direction+'-pentagonal';
+		this.setModalCell(element, numberHandler.numberProperties.pentagonal);
+	}
     // Hexagonal
     if (numberHandler.numberProperties.hexagonal !== -1) {
         element = '#fm'+direction+'-hexagonal';

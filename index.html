@@ -59,6 +59,9 @@
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Star">&#128972;</span>
                         </th>
                         <th>
+                        	<span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Pentagonal">&#11040;</span>
+                        </th>
+                        <th>
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Hexagonal">&#11041;</span>
                         </th>
                         <th>
@@ -111,6 +114,10 @@
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Star">&#128972;</span>
                         </th>
                         <th>
+                        	<span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Pentagonal">&#11040;</span>
+                        </th>
+                      
+                        <th>
                             <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Hexagonal">&#11041;</span>
                         </th>
                         <th>
@@ -148,6 +155,7 @@
                         <td class="bold-green" id="fml-triangular" title="Triangular"></td>
                         <td class="bold-green" id="fml-tetrahedral" title="Tetrahedral"></td>
                         <td class="bold-green" id="fml-star" title="Star"></td>
+                        <td class="bold-green" id="fml-pentagonal" title="&#11040; Pentagonal"></td>
                         <td class="bold-green" id="fml-hexagonal" title="Hexagonal"></td>
                         <td class="bold-green" id="fml-octagonal" title="Octagonal"></td>
                         <td class="bold-green" id="fml-semi-prime" title="Semi prime"></td>
@@ -164,6 +172,7 @@
                         <td class="bold-green" id="fmr-triangular" title="Triangular"></td>
                         <td class="bold-green" id="fmr-tetrahedral" title="Tetrahedral"></td>
                         <td class="bold-green" id="fmr-star" title="Star"></td>
+                        <td class="bold-green" id="fmr-pentagonal" title="&#11040; Pentagonal"></td>
                         <td class="bold-green" id="fmr-hexagonal" title="Hexagonal"></td>
                         <td class="bold-green" id="fmr-octagonal" title="Octagonal"></td>
                         <td class="bold-green" id="fmr-semi-prime" title="Semi prime"></td>
@@ -382,6 +391,21 @@
 
                     <tr>
                         <td class="number-symbol">
+                            &#11040;
+                        </td>
+                        <td>
+                            <input class="normal-input form-control-sm" data-placement="top" title="Show nth pentagonal number" data-type="pentagonal" placeholder="&#11040; index" type="text" name="pentanumber" id="pentaSearchInput"/><br>
+                        </td>
+                        <td>
+                            Pentagonal
+                        </td>
+                        <td id="pentaSearchResult" class="bold-green"></td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td class="number-symbol">
                             &#11041;
                         </td>
                         <td>
@@ -492,6 +516,7 @@
     <script src="js/decoder/hexagonal.js?t=16"></script>
     <script src="js/decoder/octagonal.js"></script>
     <script src="js/decoder/starnumber.js"></script>
+    <script src="js/decoder/pentagonal.js"></script>
     <script src="js/decoder/CenteredTriangular.js"></script>
     <script src="js/decoder/Heptagonal.js"></script>
     <script src="js/decoder/CenteredHeptagonal.js"></script>

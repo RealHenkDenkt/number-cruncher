@@ -9,6 +9,7 @@ $(document).ready(function (){
             semiPrimeIn: $('#semiprimeSearchInput'),
             tetrahedralIn: $('#tetrahedralSearchInput'),
             triangularIn: $('#triangularSearchInput'),
+            pentagonalIn: $('#pentaSearchInput'),
             hexagonalIn: $('#hexaSearchInput'),
             octagonalIn: $('#octaSearchInput'),
             compositeIn: $('#compSearchInput'),
@@ -29,6 +30,7 @@ $(document).ready(function (){
         semiprime: $('#semiprimeSearchResult'),
         tetrahedral: $('#tetrahedralSearchResult'),
         triangular: $('#triangularSearchResult'),
+        pentagonal: $('#pentaSearchResult'),
         hexagonal: $('#hexaSearchResult'),
         octagonal: $('#octaSearchResult'),
         star: $('#starSearchResult'),
@@ -111,6 +113,16 @@ $(document).ready(function (){
 
         results.triangular.html(manager.getTriangularByNumber(number));
     });
+    inputs.types.pentagonalIn.on('input', function () {
+		let manager = new PentagonalManager();
+		let number = parseInt($(this).val());
+		
+		if (isNaN(number) || number > 39999) return;
+		
+		results.pentagonal.html(manager.getNth(number));
+	});
+    
+    
     inputs.types.hexagonalIn.on('input', function (){
         let manager = new HexagonalManager();
         let number = parseInt($(this).val());
