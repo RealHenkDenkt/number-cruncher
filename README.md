@@ -12,3 +12,11 @@ Use the link below to see the code in action.
 
 https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/number-cruncher/blob/main/index.html
 
+### Chrome extension (Experimental)
+
+I've added a manifest and index file so the project can be used as a Chrome extension. Clone or unzip the project 
+to a folder, go to extensions in Chrome, enable developer mode and click 'load unpacked'. Select the folder 
+where you unpacked the project.
+
+![Image showing the app as a chrome extension](img/chrome-extension-1.png)
+

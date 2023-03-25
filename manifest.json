@@ -1,0 +1,56 @@
+{
+	"manifest_version": 3,
+	"name": "NumberCruncher",
+	"version": "1.0.1",
+	"action": "extension-index.html",
+	"description": "Properties of numbers",
+	"author": "Henk Denkt",
+	"action": { 
+		"default_popup": "extension-index.html",
+		"default_title": "Decode from any site"
+	},
+	
+	"content_scripts":
+		[ 
+			{ 
+				"matches": ["http://*/*"],
+				"js": [ 
+					"js/jquery.min.js",
+					"js/js.cookie.js",
+					"js/bootstrap.bundle.min.js",
+					"js/nouislider.min.js",
+					"js/argon.min.js",
+					"js/decoder/composites.js",
+					"js/decoder/hexagonal.js",
+					"js/decoder/octagonal.js",
+					"js/decoder/starnumber.js",
+					"js/decoder/pentagonal.js",
+					"js/decoder/CenteredTriangular.js",
+					"js/decoder/Heptagonal.js",
+					"js/decoder/CenteredHeptagonal.js",
+					"js/decoder/primes-list.js",
+					"js/decoder/triangulars.js",
+					"js/decoder/tetrahedral.js",
+					"js/decoder/fibonaccis.js",
+					"js/decoder/Primes.js",
+					"js/decoder/lucas.js",
+					"js/decoder/harshad.js",
+					"js/decoder/NumberCruncher.js",
+					"js/decoder/NumberHandler.js",
+					"js/decoder/CoreNumberCruncher.js"
+				],
+				"css": 
+					[
+						"css/all.min.css",
+						"css/extra.style.css"
+				],
+				"run_at": "document_end"
+					
+			}
+		],
+		"host_permissions": ["<all_urls>"],
+		"permissions": 
+			[
+				"scripting"
+			]
+}

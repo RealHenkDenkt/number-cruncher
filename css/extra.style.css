@@ -571,3 +571,26 @@ td.number-symbol {
     text-align: center;
     min-height: 100vh;
 }
+.row {
+	margin-left:15px!important;
+	margin-right: 15px!important;
+}
+.nleft {
+
+}
+.nright {
+
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
