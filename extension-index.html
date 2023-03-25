@@ -17,6 +17,15 @@
 </head>
 <body style="background: #1a174d; width: 780px;">
 <div class="row">
+<table class="table-dark">
+       <tr>
+       	<td style="width:33%;"></td>
+       	<td class="cellCentered"><input type="text" id="numberIn"></td>
+       	<td></td>
+       </tr>
+</table>
+</div>
+<div class="row">
      <input id="numberCruncherModalNumber" type="hidden" value="0">
      <div>
      <table id="numberCruncherModalTable" class="table-dark">
@@ -120,12 +129,10 @@
                                      <th>
              	<span class="nright bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Centered Triangular">CT</span>
              </th>
-             </th>
-                                     <th>
+			<th>
              	<span class="nright bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Heptagonal">H</span>
              </th>
-             </th>
-                                     <th>
+			<th>
              	<span class="nright bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Centered Heptagonal">CH</span>
              </th>
          </tr>
@@ -148,7 +155,6 @@
              <td class="nleft bold-green" id="fml-centeredtriangular" title="Centered triangular"></td>
              <td class="nleft bold-green" id="fml-heptagonal" title="Heptagonal"></td>
              <td class="nleft bold-green" id="fml-centeredheptagonal" title="Centered heptagonal"></td>
-             <td></td>
              <td class="nright bold-green" id="fmr-composite" title="Composite/non-prime"></td>
              <td class="nright bold-green" id="fmr-prime" title="Prime"></td>
              <td class="nright bold-green" id="fmr-pythagorean-prime" title="Pythagorean prime"></td>
@@ -163,7 +169,7 @@
              <td class="nright bold-green" id="fmr-lucas" title="Lucas"></td>
              <td class="nright bold-green" id="fmr-harshad" title="Harshad"></td>
              <td class="nright bold-green" id="fmr-centeredtriangular" title="Centered triangular"></td>
-           	<td class="nright bold-green" id="fmr-heptagonal" title="Heptagonal"></td>
+           	 <td class="nright bold-green" id="fmr-heptagonal" title="Heptagonal"></td>
              <td class="nright bold-green" id="fmr-centeredheptagonal" title="Centered heptagonal"></td>
              
          </tr>
@@ -171,15 +177,6 @@
 	</table>
 	</div>
 </div>
-</div>
-<div class="row">
-<table class="table-dark">
-       <tr>
-       	<td style="width:33%;"></td>
-       	<td class="cellCentered"><input type="text" id="numberIn"></td>
-       	<td></td>
-       </tr>
-</table>
 </div>
 <div class="row">
 	<div>
@@ -293,6 +290,9 @@
 
          </tbody>
      </table>
+	 </div>
+	 <div class="row">
+	 	<h2 class="headerH2">Number types</h2>
 	 </div>
 	<div class="row">
        <table id="indexes-form-table" class="pi-table table-dark align-items-center">

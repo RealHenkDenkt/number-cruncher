@@ -168,7 +168,7 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
 	}
 
     // Centered Heptagonal
-    if (numberHandler.numberProperties.CenteredHeptagonal !== -1) {
+    if (numberHandler.numberProperties.centeredHeptagonal !== -1) {
 		element = '#fm'+direction+'-centeredheptagonal';
 		this.setModalCell(element, numberHandler.numberProperties.centeredHeptagonal);
 	}

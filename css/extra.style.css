@@ -29,7 +29,7 @@ sup {
     font-weight: bolder;
 }
 
-.bold-blue {
+.bold-blue, .headerH2 {
     color: #3677d0;/*#4ea121;*/
     font-weight: bolder;
 }
@@ -596,4 +596,8 @@ body {
 }
 .table-dark {
 	width:780px!important;
+}
+.headerH2 {
+	text-align: center;
+	margin: auto;
 }
