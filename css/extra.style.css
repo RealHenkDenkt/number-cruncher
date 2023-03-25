@@ -594,3 +594,6 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+.table-dark {
+	width:780px!important;
+}

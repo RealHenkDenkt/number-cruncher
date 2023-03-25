@@ -223,6 +223,8 @@ $(document).ready(function (){
             }
         }
     }
+    
+    inputs.main.numberIn.focus();
 
 });
 
