@@ -22,7 +22,7 @@ let NumberCruncher = function (number) {
 		'cubed',
 		'summed',
 		'divide9',
-		'-divide11',
+		'divide11',
 		'times-self',
 		'times-mirror',
 		'plus-mirror',
@@ -37,19 +37,6 @@ let NumberCruncher = function (number) {
 		'base7',
 		'base8',
 		'base16'
-		
-		/**
-		
-'reduced','cubed''summed','divide9','-divide11','times-self','times-mirror','plus-mirror','number-of-divisors',
-'summed-divisors','summed-divisors-full','-divisors','factorization-text','binary','base3','base6',
-'base7','base8','base16'
-    this.setModalCell(element, '');
-
-		 */
-		
-		
-		
-		
 	];
 }
 
@@ -75,6 +62,7 @@ NumberCruncher.prototype.fillModalContent = function (number) {
     for (let i = numberString.length; i >=0; i--) {
         if (undefined !== numberString[i])  mirror += numberString[i];
     }
+    
     this.setModalContent(parseInt(mirror), 'r');
 }
 
@@ -83,20 +71,23 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
     this.clearModalContent(direction);
     let numberHandler = new NumberHandler();
     numberHandler.setNumber(number);
-
+console.log(numberHandler.numberProperties);
     // set Number
     let element = '#fm'+direction+'-number';
     this.setModalCell(element, number);
+    
     // set composite
     if (numberHandler.numberProperties.composite !== -1)  {
         element = '#fm'+direction+'-composite';
         this.setModalCell(element, numberHandler.numberProperties.composite);
     } else {
+       
         // set prime
         if (numberHandler.numberProperties.prime !== -1) {
             element = '#fm'+direction+'-prime';
             this.setModalCell(element, numberHandler.numberProperties.prime);
         }
+       
         // set Pythagorean prime
         if (numberHandler.numberProperties.pythagorean_prime !== -1) {
             element = '#fm'+direction+'-pythagorean-prime';
@@ -108,7 +99,6 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-semi-prime';
         this.setModalCell(element, numberHandler.numberProperties.semi_prime);
     }
-
     // Fibonacci
     if (numberHandler.numberProperties.fibonacci !== -1) {
         element = '#fm'+direction+'-fibonacci';
