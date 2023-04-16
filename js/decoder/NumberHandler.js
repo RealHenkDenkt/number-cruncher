@@ -126,7 +126,7 @@ NumberHandler.prototype.setSummedAndDivisors = function (){
     }
     this.numberProperties.divisors = res;
     this.numberProperties.sum_divisors_full = sumdiv;
-    this.numberProperties.sum_divisors = sumdiv - this.number - 1;
+    this.numberProperties.sum_divisors = sumdiv - this.number;// - 1;
     this.numberProperties.summed = sum;
     this.numberProperties.count_divisors = countDivisors;
     this.numberProperties.factorization_text = this.cleanString(this.factor(this.number));
