@@ -1,5 +1,6 @@
 let PrimeManager = function () {
     this.primesList = Primes;
+    this.primeIndexStart = parseInt($('#primeIndexStart').attr('data-checked'));
 }
 
 PrimeManager.prototype.getPrimeNumber = function (number) {
@@ -102,7 +103,15 @@ PrimeManager.prototype.getNthPythagoreanPrime = function (num) {
 }
 
 PrimeManager.prototype.getNthPrime = function (num) {
-        let i, primes = [2, 3], n = 5;
+        let i, primes, n;
+        
+        if (this.primeIndexStart === 2) {
+			primes = [2, 3], n = 5;
+		} else {
+			primes = [1, 2], n = 3;
+		}
+        
+        
         function isPrime(n) {
             let i = 1, p = primes[i],
                 limit = Math.ceil(Math.sqrt(n));
@@ -115,7 +124,9 @@ PrimeManager.prototype.getNthPrime = function (num) {
             }
             return true;
         }
-        for (i = 2; i <= num; i += 1) {
+        i = this.primeIndexStart;
+        
+        for (i ; i <= num; i += 1) {
             while (!isPrime(n)) {
                 n += 2;
             }

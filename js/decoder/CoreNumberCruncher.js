@@ -41,7 +41,17 @@ $(document).ready(function (){
     //    harshad: $('#harshadSearchResult'),
         fibo: $('#fiboSearchResult')
     };
-
+	
+	let primeIndexStart = $('#primeIndexStart');
+	
+	primeIndexStart.on('click', function (){
+		if ($(this).attr('data-checked') === '2') {
+			$(this).attr('data-checked', '1');
+		} else {
+			$(this).attr('data-checked', '2');
+		}		
+	});
+	
     inputs.main.numberIn.on('input', function (){
         let
             number = parseInt($(this).val()),

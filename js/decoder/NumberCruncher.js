@@ -71,7 +71,7 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
     this.clearModalContent(direction);
     let numberHandler = new NumberHandler();
     numberHandler.setNumber(number);
-console.log(numberHandler.numberProperties);
+
     // set Number
     let element = '#fm'+direction+'-number';
     this.setModalCell(element, number);
@@ -85,6 +85,9 @@ console.log(numberHandler.numberProperties);
         // set prime
         if (numberHandler.numberProperties.prime !== -1) {
             element = '#fm'+direction+'-prime';
+            if ($('#primeIndexStart').attr('data-checked') === '1') {
+				numberHandler.numberProperties.prime++;
+			}
             this.setModalCell(element, numberHandler.numberProperties.prime);
         }
        

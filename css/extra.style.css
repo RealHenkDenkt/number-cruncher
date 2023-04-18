@@ -524,9 +524,6 @@ th.phraseHeader, td.loaded-phrase {
     white-space: normal!important;
 }
 
-#extra-ciphers-panel {
-       /*display: none;*/
-}
 #shapeCanvas {
     width: 800px;
     height: 600px;
@@ -575,12 +572,7 @@ td.number-symbol {
 	margin-left:15px!important;
 	margin-right: 15px!important;
 }
-.nleft {
 
-}
-.nright {
-
-}
 html, body {
     height: 100%;
 }
@@ -600,4 +592,7 @@ body {
 .headerH2 {
 	text-align: center;
 	margin: auto;
+}
+.prime-option {
+	 color: #a4d2dc;
 }
