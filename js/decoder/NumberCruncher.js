@@ -23,6 +23,7 @@ let NumberCruncher = function (number) {
 		'summed',
 		'divide9',
 		'divide11',
+		'sqrt',
 		'times-self',
 		'times-mirror',
 		'plus-mirror',
@@ -54,6 +55,8 @@ NumberCruncher.prototype.clearModalContent = function (direction) {
 }
 
 NumberCruncher.prototype.fillModalContent = function (number) {
+    // hide rows
+    $('#sqrt-row').hide();
     // left
     this.setModalContent(parseInt(number), 'l');
     let mirror = '',
@@ -62,7 +65,7 @@ NumberCruncher.prototype.fillModalContent = function (number) {
     for (let i = numberString.length; i >=0; i--) {
         if (undefined !== numberString[i])  mirror += numberString[i];
     }
-    
+    // right
     this.setModalContent(parseInt(mirror), 'r');
 }
 
@@ -186,6 +189,16 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-divide11';
         this.setModalCell(element, numberHandler.number / 11);
     }
+    // Square root
+    let sqrt = Math.sqrt(numberHandler.number);  
+    if (Number.isInteger(sqrt)) {
+		$('#sqrt-row').show();
+		element = '#fm'+ direction+'-sqrt';
+		this.setModalCell(element, sqrt)
+	} else {
+		this.setModalCell(element, '');
+	}
+    
     // TimesSelf
     element = '#fm'+direction+'-times-self';
     this.setModalCell(element, numberHandler.numberProperties.times_self);
