@@ -65,11 +65,11 @@ $(document).ready(function (){
             return;
         }
 
-
-
+		// store value in storage
+		let storage = new StorageHandler();
+		storage.setStorageKey('numin', number);
 
         numberCruncher.fillModalContent(parseInt($(this).val()));
-
 
         // Set index searches
         for (type in inputs.types) {
@@ -235,6 +235,13 @@ $(document).ready(function (){
     }
     
     inputs.main.numberIn.focus();
+    // load from storage
+   	let storage = new StorageHandler();
+   	//let number = storage.getStorageKeyValue('numin');
+   	storage.loadData();
+   	console.log('klaar');
+    //inputs.main.numberIn.val(number);
+   //	$('#numin').val(number).trigger('input');
 
 });
 

@@ -36,6 +36,7 @@
 					"js/decoder/harshad.js",
 					"js/decoder/NumberCruncher.js",
 					"js/decoder/NumberHandler.js",
+					"js/decoder/StorageHandler.js",
 					"js/decoder/CoreNumberCruncher.js"
 				],
 				"css": 
@@ -50,6 +51,8 @@
 		"host_permissions": ["<all_urls>"],
 		"permissions": 
 			[
-				"scripting"
+				"scripting",
+				"storage",
+				"activeTab"
 			]
 }
