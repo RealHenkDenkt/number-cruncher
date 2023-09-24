@@ -12,6 +12,6 @@ class StorageHandler {
     loadData() {
 		let number = localStorage.getItem('numin');
         let select = $("#numberIn");
-        select.val(number).trigger('input');
+        select.val(number).focus().select().trigger('input');
     }
 }    
