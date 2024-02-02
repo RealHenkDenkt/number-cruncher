@@ -5,6 +5,14 @@ class NumberProperties {
 	opTable = {};
 	indexTable = {};
 	mirror = 0;
+	startTime = 0;
+	endTime = 0;
+	exceptions = [
+		'composite',
+		'prime',
+		'pythagoreanPrime',
+		'semiPrime'
+	];
 	
 	constructor (n) {
 		this.operation = new NumberOperation();
@@ -67,13 +75,24 @@ class NumberProperties {
 	}
 	
 	analyzeIndexes () {
+
 		for (let h in this.handlers) {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
+				this.startTime = performance.now()
 				let calc = handler.types[type];
 				let number = this.number;
 				//let isValid = calc.check(number);
+				if (number > 99999 && this.exceptions.indexOf(type) > -1) {
+					this.indexTable.addRow(
+						calc.symbol,
+						number,
+						type,
+						'?'
+					);
+					continue;
+				} 
 				
 				let value = calc.byIndex(number);
 				this.indexTable.addRow(
@@ -82,6 +101,9 @@ class NumberProperties {
 					type,
 					value
 				);
+				
+				this.endTime = performance.now();
+				console.log(type + ': ' + (this.endTime - this.startTime));
 
 			}
 		}
@@ -92,9 +114,15 @@ class NumberProperties {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
+				this.startTime = performance.now()
 				// voor ieder type een tr met head en een table row met body
 				let calc = handler.types[type];
 				let number = this.number;
+				if (number > 99999 && this.exceptions.indexOf(type) > -1 ){
+					this.table.addIndex (direction, type, calc.symbol, '?');
+					continue;
+				}
+				
 				let isValid = calc.check(number);
 				
 				let i, t = 0;
@@ -106,7 +134,12 @@ class NumberProperties {
 				if (true == isValid) {
 					this.table.addIndex (direction, type, calc.symbol, t);
 				}
+
+				this.endTime = performance.now();
+				console.log(type + ': ' + (this.endTime - this.startTime));
+
 			}
+			
 		}
 
 	}

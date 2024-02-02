@@ -9,11 +9,16 @@ $(document).ready (function (){
             return;
         }
 
-		numberIn(number);
-		
-		// store value in storage
-		let storage = new StorageHandler();
-		storage.setStorageKey('numin', number);
+		if (number < 9999999) {
+			numberIn(number);
+			
+			// store value in storage
+			let storage = new StorageHandler();
+			storage.setStorageKey('numin', number);
+			
+		} else {
+			alert('Number to big!');
+		}
 	});
 	
     // load from storage

@@ -15,7 +15,10 @@ class NumberOperation {
 			        for (let i = 0; i < totalString.length; i++) {
 			            reduced += Number(totalString[i]);
 			        }
-			    }
+			    } else {
+					return n;
+				}
+				
 			    if (reduced > 0 && reduced < 10) return reduced;
 			
 			    if (reduced > 9) {
@@ -84,7 +87,14 @@ class NumberOperation {
 
 				}
 				
-				divisors[n] = res;
+			    let div = '';
+    
+				for (let i = 0; i < res.length; i++) {
+					div += res[i] + ', ';
+				}
+
+				
+				divisors[n] = div;
 				divisorsFull[n] = sumdiv;
 				divisorsPart[n] = sumdiv - n;
 				divisorsCount[n] = countDivisors;
@@ -175,12 +185,12 @@ class NumberOperation {
 	}
 }
 let 
-	divisors, 
-	divisorsPart,
-	divisorsFull,
-	divisorsCount,
-	divisorsText,
-	factorizationText;
+	divisors = [], 
+	divisorsPart = [],
+	divisorsFull = [],
+	divisorsCount = [],
+	divisorsText = [],
+	factorizationText = [];
 
 let factor = function (n) {
 	if (isNaN(n) || !isFinite(n) || n % 1 !== 0 || n === 0) return '' + n;
