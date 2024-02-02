@@ -8,11 +8,15 @@ let NumberCruncher = function (number) {
 		'semi-prime',
 		'fibonacci',
 		'triangular',
+		'centered-triangular',
 		'pentagonal',
+		'centered-pentagonal',
 		'hexagonal',
+		'centered-hexagonal',
 		'tetrahedral',
 		'star',
 		'octagonal',
+		'centered-octagonal',
 		'lucas',
 		'harshad',
 		'centeredtriangular',
@@ -115,16 +119,36 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-triangular';
         this.setModalCell(element, numberHandler.numberProperties.triangular);
     }
+    
+    // Centered Triangular
+    if (numberHandler.numberProperties.centeredTriangular !== -1) {
+        element = '#fm'+direction+'-centered-triangular';
+        this.setModalCell(element, numberHandler.numberProperties.centeredTriangular);
+    }
+
     // Pentagonal
     if (numberHandler.numberProperties.pentagonal !== -1) {
 		element = '#fm'+direction+'-pentagonal';
 		this.setModalCell(element, numberHandler.numberProperties.pentagonal);
 	}
+	
+    // Centered Pentagonal
+    if (numberHandler.numberProperties.centeredhexagonal != -1 ) {
+		element = '#fm'+direction+'-centered-pentagonal';
+		this.setModalCell(element, numberHandler.numberProperties.centeredPentagonal);
+	}
+
     // Hexagonal
     if (numberHandler.numberProperties.hexagonal !== -1) {
         element = '#fm'+direction+'-hexagonal';
         this.setModalCell(element, numberHandler.numberProperties.hexagonal);
     }
+    // Centered Hexagonal
+    if (numberHandler.numberProperties.centeredhexagonal != -1 ) {
+		element = '#fm'+direction+'-centered-hexagonal';
+		this.setModalCell(element, numberHandler.numberProperties.centeredHexagonal);
+	}
+        
     // Tetrahedral
     if (numberHandler.numberProperties.tetrahedral !== -1) {
         element = '#fm'+direction+'-tetrahedral';
@@ -140,6 +164,14 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
         element = '#fm'+direction+'-octagonal';
         this.setModalCell(element, numberHandler.numberProperties.octagonal);
     }
+    
+    // Centered Octagonal
+    if (numberHandler.numberProperties.centeredoctagonal != -1 ) {
+		element = '#fm'+direction+'-centered-octagonal';
+		this.setModalCell(element, numberHandler.numberProperties.centeredOctagonal);
+	}
+
+    
     // Lukas
     if (numberHandler.numberProperties.lucas !== -1) {
         element = '#fm'+direction+'-lucas';
@@ -240,7 +272,8 @@ NumberCruncher.prototype.setModalContent = function (number, direction) {
 }
 
 NumberCruncher.prototype.setModalCell = function (element, value) {
-    $(element).html(value);
+    if (value != -1 && value != '-1') $(element).html(value);
+    else $(element).html('');
 }
 
 NumberCruncher.prototype.setModalClicks = function () {

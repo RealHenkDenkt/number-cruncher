@@ -13,12 +13,16 @@ NumberHandler.prototype.setNumber = function (number) {
         'semi_prime': -1,
         'fibonacci': -1,
         'triangular': -1,
+        'centeredTriangular': -1,
         'tetrahedral': -1,
         'harshad': -1,
         'pentagonal': -1,
+        'centeredPentagonal': -1,
         'hexagonal': -1,
+        'centeredHexagonal': -1,
         'star': -1,
         'octagonal': -1,
+        'centeredOctagonal': -1,
         'lucas': -1,
         'centeredTriangular': -1,
         'heptagonal': -1,
@@ -43,11 +47,15 @@ NumberHandler.prototype.setProperties = function () {
     this.setPrime();
     this.setFibonacci();
     this.setTriangular();
+    this.setCenteredTriangular();
     this.setTetrahedral();
     this.setPentagonal();
+    this.setCenteredPentagonal();
     this.setHexagonal();
+    this.setCenteredHexagonal();
     this.setStar();
     this.setOctagonal();
+    this.setCenteredOctagonal();
     this.setLucas();
     this.setReduced();
     this.setTimesSelf();
@@ -212,6 +220,17 @@ NumberHandler.prototype.checkStar = function () {
     return starNumberManager.isStarnumber(this.number);
 }
 
+NumberHandler.prototype.setCenteredOctagonal = function() {
+	let manager = new CenteredOctagonalManager();
+	if (manager.check (this.number) == true) {
+		this.numberProperties.centeredOctagonal = manager.getIndex(this.number);
+	}
+}
+
+NumberHandler.prototype.checkCenteredOctagonal = function () {
+	
+}
+
 NumberHandler.prototype.setPentagonal = function () {
 	if (true === this.checkPentagonal()) {
 		let pentagonalManager = new PentagonalManager();
@@ -244,6 +263,23 @@ NumberHandler.prototype.setOctagonal = function () {
         this.numberProperties.octagonal = octagonalManager.getIndex(this.number);
     }
 }
+
+NumberHandler.prototype.setCenteredHexagonal = function() {
+	let manager = new CenteredHexagonalManager();
+	if (manager.check (this.number) == true) {
+		this.numberProperties.centeredHexagonal = manager.getIndex(this.number);
+
+	}
+}
+
+NumberHandler.prototype.setCenteredPentagonal = function() {
+	let manager = new CenteredPentagonalManager();
+	if (manager.check (this.number) == true) {
+		this.numberProperties.centeredPentagonal = manager.getIndex(this.number);
+
+	}
+}
+
 
 NumberHandler.prototype.checkOctagonal = function () {
     let octagonalManager = new OctagonalManager();
@@ -278,7 +314,7 @@ NumberHandler.prototype.setCenteredHeptagonal = function () {
 
 NumberHandler.prototype.checkCenteredTriangular = function () {
 	let manager = new CenteredTriangularManager();
-	return manager.isCenteredTriangular(this.number);
+	return manager.check(this.number);
 }
 
 NumberHandler.prototype.setCenteredTriangular = function () {
@@ -341,7 +377,6 @@ NumberHandler.prototype.setComposite = function () {
 
 NumberHandler.prototype.checkComposite = function () {
     return (this.numberProperties.prime === -1);
-
 
 }
 NumberHandler.prototype.setTriangular = function () {
