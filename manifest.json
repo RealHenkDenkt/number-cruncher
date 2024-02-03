@@ -26,6 +26,7 @@
 				    "js/decoder/SpecialNumber.js",
 				    "js/decoder/CoreNumbers.js",
 				    "js/decoder/NumberProperties.js",
+				    "js/decoder/NumberPropertiesTable.js",
 				    "js/decoder/NumberOperation.js",
 				    "js/decoder/HtmlElements.js",
 				    "js/decoder/StorageHandler.js"

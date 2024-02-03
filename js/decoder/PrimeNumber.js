@@ -9,7 +9,7 @@ class PrimeNumber {
 			'byIndex' : function (n) {
 				n = parseInt(n);
 			    let index = this.composites.indexOf(n);
-				console.log(index);
+				//console.log(index);
 			    if (index > -1) {
 			        return index+1;
 			    }

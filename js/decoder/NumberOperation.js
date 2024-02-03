@@ -26,6 +26,52 @@ class NumberOperation {
 			    }				
 			}
 		},
+		'summed' : {
+			'check' : function (n) {
+				return true;
+			},
+			'calculate' : function (n) {
+
+			    let sum = 0,
+        		fac = 0,
+        		facM = 0,
+        		sumdiv = 0,
+        		countDivisors = 0,
+        		res = [];
+
+			    for (let i = 1; i <= n; i++) {
+
+        			sum += i;
+        			fac = i * fac;
+			        let t = n / i;
+        			
+        			if (isInt(t) ) {
+            			sumdiv += i;
+            			countDivisors ++;
+            			res.push(i);
+        			}
+
+		        	if (i === n - 1 && fac !== 'Infinity') facM = fac;
+
+				}
+				
+			    let div = '';
+    
+				for (let i = 0; i < res.length; i++) {
+					div += res[i] + ', ';
+				}
+
+				divisors[n] = div;
+				divisorsFull[n] = sumdiv;
+				divisorsPart[n] = sumdiv - n;
+				divisorsCount[n] = countDivisors;
+				factorizationText[n] = cleanString(factor(n));
+				
+				if (sum < 9999999 )return sum;
+				return '';
+				
+			}
+		},
 		'squared' : {
 			'check' : function (n) {
 				return true;
@@ -60,51 +106,7 @@ class NumberOperation {
 				return n + mirror;
 			}
 		},
-		'summed' : {
-			'check' : function (n) {
-				return true;
-			},
-			'calculate' : function (n) {
-			    let sum = 0,
-        		fac = 0,
-        		facM = 0,
-        		sumdiv = 0,
-        		countDivisors = 0,
-        		res = [];
-
-			    for (let i = 1; i <= n; i++) {
-        			sum += i;
-        			fac = i * fac;
-			        let t = n / i;
-        			
-        			if (isInt(t)) {
-            			sumdiv += i;
-            			countDivisors ++;
-            			res.push(i);
-        			}
-
-		        	if (i === n - 1 && fac !== 'Infinity') facM = fac;
-
-				}
-				
-			    let div = '';
-    
-				for (let i = 0; i < res.length; i++) {
-					div += res[i] + ', ';
-				}
-
-				
-				divisors[n] = div;
-				divisorsFull[n] = sumdiv;
-				divisorsPart[n] = sumdiv - n;
-				divisorsCount[n] = countDivisors;
-				factorizationText[n] = cleanString(factor(n));
-				
-				if (sum < 9999999 )return sum;
-				return '';
-				
-			}
-		},
+		
 		'divide9' : {
 			'check' : function (n) {
 				if (n % 9 ==0 ) return true;

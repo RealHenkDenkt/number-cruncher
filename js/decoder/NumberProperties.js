@@ -39,13 +39,20 @@ class NumberProperties {
 			let calc = handler.types[type];
 			let number = this.number;
 			let isValid = calc.check(number);
+			let value = calc.calculate(number)
+			
+			let n = calc.calculate(this.getMirror(number));
+
+			if (type == 'divisors') {
+				console.log(divisors);
+			}			
+
 
 			if (true == isValid) {
 				this.opTable.addRow(
-					calc.calculate(this.getMirror(number)),
+					value,
 					type,
-					calc.calculate(number)
-					
+					n
 				);
 			}
 		}
@@ -54,9 +61,11 @@ class NumberProperties {
 	}
 	
 	getTables () {
+		this.table = new NumberPropertiesTable();
 		let tables = [];
+		let firstNumber = this.number;
 		this.table.addNumberToRow(this.number, 'NUMBER');
-		this.analyze('left');
+		this.analyze('left', this.number);
 		tables.push(this.table.getTable());
 		this.table = new NumberPropertiesTable();
 		let mirror = '';
@@ -67,9 +76,11 @@ class NumberProperties {
 	    }
 
         this.number = parseInt(mirror);
+
         this.table.addNumberToRow(this.number, 'MIRROR');
-        this.analyze('right');
+        this.analyze('right', this.number);
 		tables.push(this.table.getTable());
+		this.number = firstNumber;
         
 		return tables;
 	}
@@ -80,7 +91,7 @@ class NumberProperties {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
-				this.startTime = performance.now()
+			//	this.startTime = performance.now()
 				let calc = handler.types[type];
 				let number = this.number;
 				//let isValid = calc.check(number);
@@ -103,21 +114,21 @@ class NumberProperties {
 				);
 				
 				this.endTime = performance.now();
-				console.log(type + ': ' + (this.endTime - this.startTime));
+			//console.log(type + ': ' + (this.endTime - this.startTime));
 
 			}
 		}
 	}
 	
-	analyze (direction) {
+	analyze (direction, number) {
 		for (let h in this.handlers) {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
-				this.startTime = performance.now()
+			//	this.startTime = performance.now()
 				// voor ieder type een tr met head en een table row met body
 				let calc = handler.types[type];
-				let number = this.number;
+				//let number = this.number;
 				if (number > 99999 && this.exceptions.indexOf(type) > -1 ){
 					this.table.addIndex (direction, type, calc.symbol, '?');
 					continue;
@@ -136,7 +147,7 @@ class NumberProperties {
 				}
 
 				this.endTime = performance.now();
-				console.log(type + ': ' + (this.endTime - this.startTime));
+			//	console.log(type + ': ' + (this.endTime - this.startTime));
 
 			}
 			
