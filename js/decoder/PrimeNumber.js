@@ -7,6 +7,8 @@ class PrimeNumber {
 				return true;
 			},
 			'byIndex' : function (n) {
+				return CompositesList[n];
+/*				
 				n = parseInt(n);
 			    let index = this.composites.indexOf(n);
 				//console.log(index);
@@ -23,13 +25,18 @@ class PrimeNumber {
 			    }
 			
 			    if (index > 0) return index;
-			    return -1;				
+			    return -1;
+			    */				
 			},
 			'composites' : 	composites,
 			'symbol' : 'C'
 		},
 		prime : {
 			check : function (n) {
+				if (n > 1999993) return false;
+				//return PrimesList.indexOf(n) > -1;
+				return PrimesList[n];
+		        /*
 		        if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false;
 
         		let m=Math.sqrt(n); //returns the square root of the passed value
@@ -38,9 +45,12 @@ class PrimeNumber {
 					if (n%i === 0) return false;
 				}
 		        return true;
+		        */
 
 			},
 			byIndex : function (n) {
+				if (this.check(n)) return PrimesList[n - 1 ];
+				/*
 				let i=2;
      
 			    while(n>0) {
@@ -52,14 +62,19 @@ class PrimeNumber {
     			i-=1; 
           		
     			return i;
+    			*/
 			},
 			'symbol' : '&prime;'
 		},
 		'pythagoreanPrime' : {
 			'check' : function (n) {
-				return this.isPrime(n) && (n % 4 === 1);
+				if (n > 1999993) return false;
+				return isPythagoreanPrime(n);
 			},
-			'byIndex' : function (num) {
+			'byIndex' : function (n) {
+				return PythagoreanPrimeList[n -1 ];
+				
+			/*
 				let c = 0, i = 2;
     
     			while (true) {
@@ -73,6 +88,7 @@ class PrimeNumber {
         			if (c === num)
             			return i -1;
 					}
+					*/
 			},
 			'symbol' : '&#9727;',
 			'isPrime': function (n) {
@@ -124,7 +140,13 @@ class PrimeNumber {
 	}
 }
 
+let isPythagoreanPrime = function (n) {
+	return PythagoreanPrimeList.indexOf(n) > -1;
+}
+
 let isPrime = function (n) {
+	return PrimesList.indexOf(n) > -1;
+	/*
 	// Todo: remove this double function and put it in a helper
     if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false;
 
@@ -134,6 +156,7 @@ let isPrime = function (n) {
 		if (n%i === 0) return false;
 	}
     return true;
+    */
 
 }
 
