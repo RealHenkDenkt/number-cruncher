@@ -7,7 +7,7 @@ class PrimeNumber {
 				return true;
 			},
 			'byIndex' : function (n) {
-				return CompositesList[n];
+				return CompositesList[n-1];
 /*				
 				n = parseInt(n);
 			    let index = this.composites.indexOf(n);

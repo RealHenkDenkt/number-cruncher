@@ -9,8 +9,6 @@ class NumberProperties {
 	endTime = 0;
 	exceptions = [
 		'composite',
-	//	'prime',
-	//	'pythagoreanPrime',
 		'semiPrime'
 	];
 	
@@ -21,6 +19,7 @@ class NumberProperties {
 		this.table = new NumberPropertiesTable();
 		this.opTable = new NumberOperationTable();
 		this.indexTable = new IndexedNumberTable();
+		this.storageHandler = new StorageHandler();
 		
 		this.handlers = [
 			new PrimeNumber(),
@@ -28,9 +27,48 @@ class NumberProperties {
 			new SpecialNumber(),
 		];		
 	}
-	getNumberIndexTable () {
-		this.analyzeIndexes();
-		return this.indexTable.getTable();
+	
+	loadFromStorage () {
+		this.loadOperationsTableFromStorage();
+		this.loadTopTablesFromStorage();
+		this.loadIndexesFromStorage();
+
+	}
+	
+	getNumberIndexTable (loadFromStorage) {
+		this.analyzeIndexes(loadFromStorage);
+		return this.indexTable.getTable(false);
+	}
+	loadOperationsTableFromStorage () {
+		let handler = new NumberOperation();
+		let opTable = new NumberOperationTable();
+
+		for (let type in handler.types) {
+			let key = 'operations_' + type;
+			let data = JSON.parse(this.storageHandler.getStorageKeyValue(key));
+			if (undefined != data) {
+				let value = data['value'];
+				let n = data['n'];
+				if (value != '0') {
+					opTable.addRow(
+						value,
+						type,
+						n
+					); 			
+				}
+				
+			}
+		}
+		let html = opTable.getTable();
+		
+		$('#numberOperationsTable').html(html);
+	}
+	saveTables () {
+		let handler = this.storageHandler;
+
+		for (let key in storageProperties) {
+			handler.setStorageKey(key, JSON.stringify(storageProperties[key]));
+		}
 	}
 	getOperationTable () {
 		let handler = this.operation;
@@ -44,6 +82,11 @@ class NumberProperties {
 			let n = calc.calculate(this.getMirror(number));
 
 			if (true == isValid) {
+				storageProperties['operations_' + type] =  {
+					'n' : n,
+					'value' : value,
+					'type' : type
+				}
 				this.opTable.addRow(
 					value,
 					type,
@@ -55,12 +98,25 @@ class NumberProperties {
 		return this.opTable.getTable();
 	}
 	
-	getTables () {
+	loadIndexesFromStorage () {
+		let table = this.getNumberIndexTable(true);
+		$('#numberIndexTable').html(table);
+	}
+	
+	loadTopTablesFromStorage () {
+		let tables = this.getTables(true);
+		 
+		$('#leftNumberCruncherModalTable').html( tables[0]);
+		$('#rightNumberCruncherModalTable').html(tables[1]);
+	}
+	
+	getTables (loadFromStorage) {
+		
 		this.table = new NumberPropertiesTable();
 		let tables = [];
 		let firstNumber = this.number;
 		this.table.addNumberToRow(this.number, 'NUMBER');
-		this.analyze('left', this.number);
+		this.analyze('left', this.number, loadFromStorage);
 		tables.push(this.table.getTable());
 		this.table = new NumberPropertiesTable();
 		let mirror = '';
@@ -73,25 +129,44 @@ class NumberProperties {
         this.number = parseInt(mirror);
 
         this.table.addNumberToRow(this.number, 'MIRROR');
-        this.analyze('right', this.number);
+        this.analyze('right', this.number, loadFromStorage);
 		tables.push(this.table.getTable());
 		this.number = firstNumber;
         
 		return tables;
 	}
 	
-	analyzeIndexes () {
+	analyzeIndexes (loadFromStorage) {
 
 		for (let h in this.handlers) {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
-			//	this.startTime = performance.now()
+				if (true === loadFromStorage) {
+					
+					let key = 'indexes_' + type;
+					let data = JSON.parse(this.storageHandler.getStorageKeyValue(key));
+
+					if (data) {
+						this.indexTable.addRow(
+							data['symbol'],
+							data['number'],
+							type,
+							data['value']
+						);
+					}
+					continue;
+				}
+		//		this.startTime = performance.now()
 				let calc = handler.types[type];
 				let number = this.number;
 				let firstNumber = number;
 				//let isValid = calc.check(number);
-				if (number > 1999993 && this.exceptions.indexOf(type) > -1) {
+				/*if (number > 1999993 && this.exceptions.indexOf(type) > -1) {
+					storageProperties['indexes_' + type] = {
+						'value' : '?',
+						'symbol': calc.symbol,
+					};
 					this.indexTable.addRow(
 						calc.symbol,
 						number,
@@ -99,7 +174,7 @@ class NumberProperties {
 						'?'
 					);
 					continue;
-				} 
+				} */
 				
 				let value = calc.byIndex(number);
 				this.indexTable.addRow(
@@ -108,26 +183,47 @@ class NumberProperties {
 					type,
 					value
 				);
+				storageProperties['indexes_' + type] = {
+					'value' : value,
+					'symbol': calc.symbol,
+					'number' : number
+				};
 				
 				this.endTime = performance.now();
-			//console.log(type + ': ' + (this.endTime - this.startTime));
+		//	console.log(type + ': ' + (this.endTime - this.startTime));
 
 			}
 		}
 	}
 	
-	analyze (direction, number) {
+	analyze (direction, number, loadFromStorage) {
+		if (number == 1 ) return;
 		for (let h in this.handlers) {
 			let handler = this.handlers[h];
 			
 			for (let type in handler.types) {
-				this.startTime = performance.now()
-				// voor ieder type een tr met head en een table row met body
+			//	this.startTime = performance.now()
+				if (true === loadFromStorage) {
+
+					let key = direction + '_' + type;
+					let data = JSON.parse(this.storageHandler.getStorageKeyValue(key));
+
+					if (data) {
+						if (data['value'] != 0)	this.table.addIndex(direction, type, data['symbol'], data['value']);						
+					} 
+					continue;
+				}
 				let calc = handler.types[type];
-				//let number = this.number;
-				if (number > 1999993 && this.exceptions.indexOf(type) > -1 ){
+
+				if (number > 1000003 && this.exceptions.indexOf(type) > -1 ){
+					storageProperties[direction + '_' + type] = {
+						'direction' : direction,
+						'symbol': calc.symbol,
+					};
 					this.table.addIndex (direction, type, calc.symbol, '?');
 					continue;
+				} else if (number > 44999953 && (type == 'prime' || type == 'pythagoreanPrime') ) {
+					this.table.addIndex (direction, type, calc.symbol, '?');
 				}
 				
 				let isValid = calc.check(number);
@@ -161,15 +257,14 @@ class NumberProperties {
 							this.table.addIndex (direction, type, calc.symbol, t);
 						}
 					}
-					
+					storageProperties[direction+'_' + type] = {
+						'direction' : direction,
+						'symbol': calc.symbol,
+						'value' : index
+					};	
 				}
-				
-				
-				
-				
-
 				this.endTime = performance.now();
-				console.log(type + ': ' + (this.endTime - this.startTime));
+				//console.log(type + ': ' + (this.endTime - this.startTime));
 
 			}
 			
@@ -187,5 +282,10 @@ class NumberProperties {
 
 	    return parseInt(mirror);
 
+	}
 }
+let storageProperties = {};
+
+let saveProperties = function () {
+	let handler = new StorageHandler();
 }

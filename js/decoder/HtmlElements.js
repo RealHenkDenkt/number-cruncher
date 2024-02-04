@@ -12,7 +12,8 @@ class IndexedNumberTable {
 	   
 	addRow(symbol, nth, name, value) {
 		let html = '<tr>';
-		html += '<td class="number-symbol">' + symbol + '&nbsp;&nbsp;<span class="bold-green">' + nth + '<sup>' + getNthText(nth) + '</sup></span>' + ' ' + name + '</td>';
+		html += '<td class="number-symbol">' + symbol + '&nbsp;&nbsp;<span class="bold-green">' + nth;
+		html += '<sup>' + getNthText(nth) + '</sup></span>' + ' ' + name + '</td>';
 		html += '<td class="bold-green number-symbol">' + value + '</td></tr>';
 		 
 		this.body += html;

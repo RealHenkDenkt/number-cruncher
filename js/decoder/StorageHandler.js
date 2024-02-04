@@ -9,10 +9,13 @@ class StorageHandler {
     getStorageKeyValue(key) {
         return localStorage.getItem( key) ;
     }
+        
     loadData() {
 		let number = localStorage.getItem('numin');
         //let select = $("#numberIn");
         $('#numberIn').val(number).focus().select();
-        $('#numberIn').trigger('input');
+        let numberProperties = new NumberProperties(number);
+        numberProperties.loadFromStorage();
+        //$('#numberIn').trigger('input');
     }
 }    

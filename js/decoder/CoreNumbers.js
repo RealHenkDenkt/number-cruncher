@@ -9,7 +9,7 @@ $(document).ready (function (){
             return;
         }
 
-		if (number < 9999999) {
+		if (number < 1000001) {
 			numberIn(number);
 			
 			// store value in storage
@@ -17,7 +17,8 @@ $(document).ready (function (){
 			storage.setStorageKey('numin', number);
 			
 		} else {
-			alert('Number to big!');
+			alert('Too big: < 1,000,001');
+			$('#numberIn').val('').focus();
 		}
 	});
 	
@@ -27,6 +28,12 @@ $(document).ready (function (){
 
 });
 
+class PropertiesStorage {
+	constructor (){
+		
+	}
+}
+
 function clearNumberPropertiesTable () {
 	$('#leftNumberCruncherModalTable').html('')
 	$('#rightNumberCruncherModalTable').html('')
@@ -35,7 +42,7 @@ function clearNumberPropertiesTable () {
 function numberIn (number) {
 	// Figurates
 	let numberProperties = new NumberProperties(number);
-	let tables = numberProperties.getTables();
+	let tables = numberProperties.getTables(false);
 	$('#leftNumberCruncherModalTable').html(tables[0]);
 	$('#rightNumberCruncherModalTable').html(tables[1]);
 	
@@ -47,4 +54,6 @@ function numberIn (number) {
 	numberProperties.number = numberProperties.number;
 	let numberIndexTable = numberProperties.getNumberIndexTable();
 	$('#numberIndexTable').html(numberIndexTable);
+	
+	numberProperties.saveTables();
 }
