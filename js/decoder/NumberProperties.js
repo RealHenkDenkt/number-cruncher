@@ -94,6 +94,7 @@ class NumberProperties {
 			//	this.startTime = performance.now()
 				let calc = handler.types[type];
 				let number = this.number;
+				let firstNumber = number;
 				//let isValid = calc.check(number);
 				if (number > 99999 && this.exceptions.indexOf(type) > -1) {
 					this.indexTable.addRow(

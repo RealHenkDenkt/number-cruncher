@@ -44,7 +44,7 @@ function numberIn (number) {
 	$('#numberOperationsTable').html(operationTable);
 	
 	// Indexes
-	numberProperties.number = getMirror(numberProperties.number);
+	numberProperties.number = numberProperties.number;
 	let numberIndexTable = numberProperties.getNumberIndexTable();
 	$('#numberIndexTable').html(numberIndexTable);
 }
