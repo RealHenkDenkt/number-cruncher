@@ -4,12 +4,12 @@ $(document).ready (function (){
 	$('#numberIn').on('input', function (){
         number = parseInt($(this).val());
 		
-        if(isNaN(number) || number > 9999999) {
+        if(isNaN(number) || number > 1084605) {
             clearNumberPropertiesTable();
             return;
         }
 
-		if (number < 1000001) {
+		if (number <= 1084605) {
 			numberIn(number);
 			
 			// store value in storage
@@ -17,7 +17,7 @@ $(document).ready (function (){
 			storage.setStorageKey('numin', number);
 			
 		} else {
-			alert('Too big: < 1,000,001');
+			alert('Too big: < 1,084,605');
 			$('#numberIn').val('').focus();
 		}
 	});

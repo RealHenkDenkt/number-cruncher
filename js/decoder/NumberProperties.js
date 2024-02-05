@@ -13,6 +13,7 @@ class NumberProperties {
 	];
 	
 	constructor (n) {
+		if (n == 0 ) return; 
 		this.operation = new NumberOperation();
 		this.number = n;
 		this.mirror = this.getMirror(n);
@@ -246,6 +247,10 @@ class NumberProperties {
 						if (index != 0 ) 
 						this.table.addIndex (direction, type, calc.symbol, index);
 						break;
+					case 'SemiPrime':
+						if (index != 0) {
+							this.table.addIndex (direction, type, calc.symbol, index);
+						}
 					default:
 						let i, t = 0;
 
@@ -273,6 +278,7 @@ class NumberProperties {
 	}
 	
 	getMirror (n) {
+		if (null == n) return;
 		let mirror = '';
         let numberString = n.toString();
         

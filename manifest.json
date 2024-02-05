@@ -25,6 +25,7 @@
 					"js/decoder/PythagoreanPrimeList.js",
 					"js/decoder/PrimesList.js",
 					"js/decoder/CompositesList.js",
+					"js/decoder/SemiPrimesList.js",
 				    "js/decoder/PrimeNumber.js",
 				    "js/decoder/SpecialNumber.js",
 				    "js/decoder/CoreNumbers.js",

@@ -106,6 +106,8 @@ class PrimeNumber {
 		},
 		'semiPrime' : {
 			'check' : function (n) {
+				return isSemiPrime(n);
+				/*
 				let cnt = 0;
 			
 			    for (let i = 2; cnt < 2 && 
@@ -120,8 +122,11 @@ class PrimeNumber {
 			        ++cnt;
 
 			    return cnt === 2 ? true : false;
+			    */
 			},
 			'byIndex' : function (n) {
+				return SemiPrimesList[n+1];
+				/*
 				 let c = 0, i = 2;
 
 				while (true) {
@@ -133,7 +138,8 @@ class PrimeNumber {
         
         		if (c === n)
 					return i -1;
-    }
+    			}
+    			*/
 			},
 			'symbol' : '&half;'
 		}
@@ -142,6 +148,10 @@ class PrimeNumber {
 
 let isPythagoreanPrime = function (n) {
 	return PythagoreanPrimeList.indexOf(n) > -1;
+}
+
+let isSemiPrime = function (n) {
+	return SemiPrimesList.indexOf(n) > -1;
 }
 
 let isPrime = function (n) {
