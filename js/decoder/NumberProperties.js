@@ -14,6 +14,7 @@ class NumberProperties {
 	
 	constructor (n) {
 		if (n == 0 ) return; 
+		storageProperties = {};
 		this.operation = new NumberOperation();
 		this.number = n;
 		this.mirror = this.getMirror(n);
@@ -33,7 +34,6 @@ class NumberProperties {
 		this.loadOperationsTableFromStorage();
 		this.loadTopTablesFromStorage();
 		this.loadIndexesFromStorage();
-
 	}
 	
 	getNumberIndexTable (loadFromStorage) {
@@ -66,6 +66,7 @@ class NumberProperties {
 	}
 	saveTables () {
 		let handler = this.storageHandler;
+		handler.clear();
 
 		for (let key in storageProperties) {
 			handler.setStorageKey(key, JSON.stringify(storageProperties[key]));
@@ -248,6 +249,7 @@ class NumberProperties {
 						this.table.addIndex (direction, type, calc.symbol, index);
 						break;
 					case 'SemiPrime':
+						index = SemiPrimesList.indexOf(number) + 1;
 						if (index != 0) {
 							this.table.addIndex (direction, type, calc.symbol, index);
 						}
@@ -257,16 +259,19 @@ class NumberProperties {
 						for (i = 1; i <= number; i++) {
 							if (calc.check(i)) t++;
 						}
+						index = t;
 						
 						if (true == isValid) {
 							this.table.addIndex (direction, type, calc.symbol, t);
 						}
 					}
-					storageProperties[direction+'_' + type] = {
-						'direction' : direction,
-						'symbol': calc.symbol,
-						'value' : index
-					};	
+					if  (false === loadFromStorage && index > 0) {
+						storageProperties[direction+'_' + type] = {
+							'direction' : direction,
+							'symbol': calc.symbol,
+							'value' : index
+						};
+					}	
 				}
 				this.endTime = performance.now();
 				//console.log(type + ': ' + (this.endTime - this.startTime));

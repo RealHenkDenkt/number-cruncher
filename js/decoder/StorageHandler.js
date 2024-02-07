@@ -9,6 +9,10 @@ class StorageHandler {
     getStorageKeyValue(key) {
         return localStorage.getItem( key) ;
     }
+
+	clear () {
+		window.localStorage.clear();
+	}        
         
     loadData() {
 		let number = localStorage.getItem('numin');

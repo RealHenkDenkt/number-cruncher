@@ -125,7 +125,7 @@ class PrimeNumber {
 			    */
 			},
 			'byIndex' : function (n) {
-				return SemiPrimesList[n+1];
+				return SemiPrimesList[n - 1];
 				/*
 				 let c = 0, i = 2;
 
