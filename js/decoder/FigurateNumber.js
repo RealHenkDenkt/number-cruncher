@@ -55,6 +55,7 @@ class FigurateNumber {
         		let i = 1; 
 
         		while (true) { 
+		            
 		            let ith_term = (2 * i + 1) * (i * i + i + 1); 
 
 		            if (ith_term == n) { 

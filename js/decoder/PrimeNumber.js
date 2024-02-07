@@ -34,8 +34,8 @@ class PrimeNumber {
 		prime : {
 			check : function (n) {
 				if (n > 1999993) return false;
-				//return PrimesList.indexOf(n) > -1;
-				return PrimesList[n];
+				return PrimesList.indexOf(n) > -1;
+				//return PrimesList[n];
 		        /*
 		        if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false;
 

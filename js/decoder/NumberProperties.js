@@ -292,10 +292,68 @@ class NumberProperties {
 	    }
 
 	    return parseInt(mirror);
-
 	}
 }
 let storageProperties = {};
+
+let findMostInterestingNumberInRange = function (start, finish ) {
+
+	let highest = 0;
+	let highestNumber = 0;
+	let highestTypes = [];
+	let counter = 0;
+	let types = [];
+	let highestNumbers = [];
+
+	for (let i = start; i <= finish; i++) {
+		let numProp = new NumberProperties(i);
+		counter = 0;
+		types = [];
+		
+		for (let h in numProp.handlers) {
+
+			let handler = numProp.handlers[h];
+			
+
+			for (let type in handler.types) {
+				let calc = handler.types[type];
+				
+				if (calc.check(i)) {
+					counter++;	
+					types.push(type);
+				}
+			}
+		}
+
+		if (counter > highest) {
+			highestNumbers = [];
+			highestNumbers.push({
+				'number' : i,
+				'types' : types
+			});
+			highest = counter;
+			highestNumber = i;
+			highestTypes = types;
+		} else if (counter == highest) {
+			highestNumbers.push({
+				'number' : i,
+				'types' : types
+			});
+			
+		}
+	}
+	console.log({
+		'number' : highestNumber,
+		'counter' : highest,
+		'types' : highestTypes,
+		'higestNumbers' : highestNumbers
+	});
+}
+
+let dev = function (n) {
+	let i = 6 * ((7 * n * n - 7 * n + 2)/2 -1);
+	console.log(i);
+}
 
 let saveProperties = function () {
 	let handler = new StorageHandler();
