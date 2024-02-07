@@ -179,6 +179,7 @@ class NumberProperties {
 				} */
 				
 				let value = calc.byIndex(number);
+				if (type == "prime") console.log(calc, number, value);
 				this.indexTable.addRow(
 					calc.symbol,
 					number,
