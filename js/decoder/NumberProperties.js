@@ -123,6 +123,7 @@ class NumberProperties {
 		this.table = new NumberPropertiesTable();
 		let mirror = '';
         if (null == this.number) this.number = 37;
+        console.log(this.number);
         let numberString = this.number.toString();
         
         for (let i = numberString.length; i >=0; i--) {
