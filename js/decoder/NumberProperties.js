@@ -163,23 +163,9 @@ class NumberProperties {
 				let calc = handler.types[type];
 				let number = this.number;
 				let firstNumber = number;
-				//let isValid = calc.check(number);
-				/*if (number > 1999993 && this.exceptions.indexOf(type) > -1) {
-					storageProperties['indexes_' + type] = {
-						'value' : '?',
-						'symbol': calc.symbol,
-					};
-					this.indexTable.addRow(
-						calc.symbol,
-						number,
-						type,
-						'?'
-					);
-					continue;
-				} */
 				
 				let value = calc.byIndex(number);
-				if (type == "prime") console.log(calc, number, value);
+
 				this.indexTable.addRow(
 					calc.symbol,
 					number,
