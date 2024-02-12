@@ -122,7 +122,7 @@ class NumberProperties {
 		tables.push(this.table.getTable());
 		this.table = new NumberPropertiesTable();
 		let mirror = '';
-        if (undefined == this.number) this.number = 37;
+        if (null == this.number) this.number = 37;
         let numberString = this.number.toString();
         
         for (let i = numberString.length; i >=0; i--) {
